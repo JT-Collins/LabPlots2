@@ -1,5 +1,5 @@
 #' @export
-load_cerillo <- function(df = 'df', filename, Time_int = 10) {
+load_cerillo <- function(filename, Time_int = 10) {
 
 
 

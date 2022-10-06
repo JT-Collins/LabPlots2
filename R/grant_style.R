@@ -20,8 +20,8 @@ grant_style <- function() {
                                                 strip_text_size = 10) +
                        ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30"),
                                       plot.title.position = "plot",
-                                      axis.line = element_line(colour = "grey20", size = 0.4),
-                                      axis.ticks.length = unit(3, "pt"),
-                                      axis.text=element_text(color="grey20")))
+                                      axis.line = ggplot2::element_line(colour = "grey20", size = 0.4),
+                                      axis.ticks.length = ggplot2::unit(3, "pt"),
+                                      axis.text= ggplot2::element_text(color="grey20")))
 
 }
