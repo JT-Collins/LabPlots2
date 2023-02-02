@@ -5,7 +5,7 @@
 #' @export
 load_cerillo <- function(filename, Time_int = 10) {
 
-
+factor_names <- c("Plate", "Biol", "Biological", "Tech", "Technical", "Rep", "Replicate")
 
 # Read in Cerillo data and map file ---------------------------------------
 
@@ -25,6 +25,14 @@ df <-
   data.table::transpose(dat) |>
   dplyr::mutate(Well = colnames(dat), .before = V1) |>
   dplyr::left_join(map) |>
-  janitor::clean_names(case = "upper_camel")
+  janitor::clean_names(case = "upper_camel") |>
+  mutate(across(any_of(factor_names), as.factor)) |> # convert plate numbers etc to factors
+  #na.omit() |>
+  pivot_longer(cols = where(is.double),
+               names_to = "Time",
+               values_to = "OD600") |>
+  mutate(Time = rep(seq(0,max_time, by = Time_int), times = 96))
+
+
 df
 }

@@ -21,7 +21,7 @@ poster_style <- function() {
   ) +
     ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30"),
                    plot.title.position = "plot",
-                   axis.line = ggplot2::element_line(colour = "grey20", size = 0.4),
+                   axis.line = ggplot2::element_line(colour = "grey20", linewidth = 0.4),
                    axis.ticks.length = ggplot2::unit(3, "pt"),
                    axis.text= ggplot2::element_text(color="grey20"),
                    plot.caption = element_text(size = 16)))
