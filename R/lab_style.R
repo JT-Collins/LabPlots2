@@ -8,13 +8,20 @@ lab_style <- function() {
   options(ggplot2.discrete.fill = uofl_col )
 
   hrbrthemes::import_roboto_condensed()
-  ggplot2::theme_set(hrbrthemes::theme_ipsum_rc(grid = T,
-                                                axis = T,
-                                                ticks = F,
-                                                plot_margin = ggplot2::margin(10, 5, 5, 10),
-                                                panel_spacing = grid::unit(1, "lines"),
-                                                plot_title_size = 16,
-                                                strip_text_size = 11) +
-                       ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30")))
+  ggplot2::theme_set(hrbrthemes::theme_ipsum_rc(grid = F,
+                                              axis = F,
+                                              ticks = T,
+                                              base_size = 10,
+                                              plot_margin = ggplot2::margin(10, 5, 5, 10),
+                                              panel_spacing = grid::unit(1, "lines"),
+                                              plot_title_size = 16,
+                                              subtitle_size = 14,
+                                              axis_title_size = 14,
+                                              strip_text_size = 11) +
+                     ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30"),
+                                    plot.title.position = "plot",
+                                    axis.line = ggplot2::element_line(colour = "grey20", size = 0.6),
+                                    axis.ticks.length = ggplot2::unit(2, "pt"),
+                                    axis.text= ggplot2::element_text(color="grey20")))
 
 }
