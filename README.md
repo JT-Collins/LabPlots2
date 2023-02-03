@@ -18,8 +18,9 @@ library('LabPlots2')
 
 `lab_style()` Sets the standard LabPlot style and should be called once.  
 
-`grant_style()` Makes a few adjustments to make plots more suitable for grants/papers.  
+`grant_style()` Makes a few adjustments to make plots more suitable for grants/papers.
 
+`poster_style()` Increases font sizes to make plots more suitable for poster presentations.
 
 `add_pvalue()` is ported from `ggprism` See [here](https://csdaw.github.io/ggprism/articles/pvalues.html) and is itself refactored from  `stat_pvalue_manual` from [kassambara/ggpubr](https://github.com/kassambara/ggpubr), altered to have less dependencies, and more flexibility with input format and aesthetics. Examples using `stat_pvalue_manual` found on [Datanovia](https://www.datanovia.com/en/?s=p-value&search-type=default) will also work with `add_pvalue`.  
 
