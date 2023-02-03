@@ -18,7 +18,9 @@ grant_style <- function() {
                                                 subtitle_size = 11,
                                                 axis_title_size = 12,
                                                 strip_text_size = 10) +
-                       ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30"),
+                       ggplot2::theme(axis.text.x = ggplot2::element_text(vjust = -1),
+                                      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r=1)),
+                                      plot.title = ggplot2::element_text(color = "grey30"),
                                       plot.title.position = "plot",
                                       axis.line = ggplot2::element_line(colour = "grey20", size = 0.4),
                                       axis.ticks.length = ggplot2::unit(3, "pt"),
