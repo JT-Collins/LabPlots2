@@ -18,10 +18,12 @@ lab_style <- function() {
                                               subtitle_size = 14,
                                               axis_title_size = 14,
                                               strip_text_size = 11) +
-                     ggplot2::theme(plot.title = ggplot2::element_text(color = "grey30"),
+                     ggplot2::theme(axis.text.x = ggplot2::element_text(vjust = -1),
+                                    axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r=1)),
+                                    plot.title = ggplot2::element_text(color = "grey30"),
                                     plot.title.position = "plot",
-                                    axis.line = ggplot2::element_line(colour = "grey20", size = 0.6),
-                                    axis.ticks.length = ggplot2::unit(2, "pt"),
+                                    axis.line = ggplot2::element_line(colour = "grey20", size = 0.5),
+                                    axis.ticks.length = ggplot2::unit(3, "pt"),
                                     axis.text= ggplot2::element_text(color="grey20")))
 
 }
