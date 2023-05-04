@@ -28,7 +28,7 @@ df <-
   janitor::clean_names(case = "upper_camel") |>
   mutate(across(any_of(factor_names), as.factor)) |> # convert plate numbers etc to factors
   #na.omit() |>
-  dplyr::pivot_longer(cols = where(is.double),
+  tidyr::pivot_longer(cols = where(is.double),
                names_to = "Time",
                values_to = "OD600") |>
   dplyr::mutate(Time = rep(seq(0,max_time, by = Time_int), times = 96))
