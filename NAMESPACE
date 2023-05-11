@@ -3,6 +3,7 @@
 export(GeomBracket)
 export(StatBracket)
 export(add_pvalue)
+export(cerillo_excel)
 export(grant_style)
 export(lab_style)
 export(load_cerillo)
