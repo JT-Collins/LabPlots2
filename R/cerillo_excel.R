@@ -2,7 +2,7 @@
 #'
 #' @export
 
-cerillo_excel <- function(filename) {
+cerillo_excel <- function(filename = paste0(Sys.Date(), ".xlsx")) {
 
   well_coordinates <- expand.grid(row = LETTERS[1:8], col = 1:12)
   well_coordinates <-  well_coordinates[
