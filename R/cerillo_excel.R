@@ -14,11 +14,11 @@ cerillo_excel <- function(filename) {
   wb <- openxlsx::createWorkbook()
 
   # Add the "dat" sheet and write the well coordinates
-  openxlsx::addWorksheet(wb, "dat")
-  openxlsx::writeData(wb, "dat", x = c("Well", well_coordinates$well), startCol = 1, startRow = 1)
+  openxlsx::addWorksheet(wb, "map")
+  openxlsx::writeData(wb, "map", x = c("Well", well_coordinates$well), startCol = 1, startRow = 1)
 
   # Add the "map" sheet
-  openxlsx::addWorksheet(wb, "map")
+  openxlsx::addWorksheet(wb, "dat")
 
   # Save the workbook to a file
   openxlsx::saveWorkbook(wb, filename, overwrite = TRUE)
