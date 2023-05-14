@@ -10,7 +10,9 @@ load_cerillo <- function(filename, Time_int = 10) {
   # Read in Cerillo data and map file ---------------------------------------
 
   dat <- readxl::read_excel(filename,
-                            sheet = "dat")
+                            sheet = "dat",
+                            skip = 10,
+                            range = cellranger::cell_cols("F:CW"))
 
   map <- readxl::read_excel(filename,
                             sheet = "map")
