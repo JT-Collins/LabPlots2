@@ -5,7 +5,7 @@
 #' @export
 load_cerillo <- function(filename, Time_int = 10) {
 
-  factor_names <- c("Plate", "Biol", "Biological", "Tech", "Technical", "Rep", "Replicate")
+  factor_names <- c("Plate", "Biol", "Biological", "Tech_rep", "Technical", "Biol_rep", "Replicate")
 
   # Read in Cerillo data and map file ---------------------------------------
 
@@ -21,7 +21,7 @@ load_cerillo <- function(filename, Time_int = 10) {
 
   # Get into correct structure and join -------------------------------------
 
-  max_time <- (nrow(dat) -1) * Time_int # the total time of the experiment - the -1 accounts for the zero timepoint
+  max_time <- (nrow(dat)) * Time_int # the total time of the experiment - the -1 accounts for the zero timepoint
 
   df <-
     data.table::transpose(dat) |>

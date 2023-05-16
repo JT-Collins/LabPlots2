@@ -16,6 +16,10 @@ cerillo_excel <- function(filename = paste0(Sys.Date(), ".xlsx")) {
   # Add the "dat" sheet and write the well coordinates
   openxlsx::addWorksheet(wb, "map")
   openxlsx::writeData(wb, "map", x = c("Well", well_coordinates$well), startCol = 1, startRow = 1)
+  openxlsx::writeData(wb, "map", x = matrix(c("Biol_rep", "Tech_rep"), nrow = 1),
+                      startCol = 2,
+                      startRow = 1,
+                      colNames = FALSE)
 
   # Add the "map" sheet
   openxlsx::addWorksheet(wb, "dat")
