@@ -1,3 +1,5 @@
+#' load_cerillo
+#'
 #' @param filename The excel file that contains your OD600 readings in the 'dat' sheet and the variable data on the 'map' sheet
 #'
 #' @param Time_int Time between readings. Defaults to 10 mins

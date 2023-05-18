@@ -1,3 +1,5 @@
+#' cerillo_excel
+#'
 #' @param filename The excel file that contains your OD600 readings in the 'dat' sheet and the variable data on the 'map' sheet
 #'
 #' @export
