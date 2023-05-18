@@ -4,20 +4,20 @@
 #'
 #' @export
 
-create_project <- function(project_name) {
-  # Create main project directory
-  dir.create(here::here(project_name))
+create_project <- function(project_name, location = getwd()) {
+  # Create main project directory at the specified or current location
+  dir.create(here::here(location, project_name))
 
   # Create subdirectories within the project directory
   subdirs <- c("data", "code", "output", "figs", "doc", "src")
 
   for (subdir in subdirs) {
-    dir.create(here::here(project_name, subdir), recursive = TRUE)
+    dir.create(here::here(location, project_name, subdir), recursive = TRUE)
   }
 
   # Create RStudio project
-  setwd(here::here(project_name))
-  usethis::create_project(path = here::here(project_name))
+  setwd(here::here(location, project_name))
+  usethis::create_project(path = getwd(), open = FALSE)
 
   # Create readme.txt file
   readme_content <- paste0("This is the project folder for '", project_name, "'.\n\n")
@@ -37,7 +37,7 @@ create_project <- function(project_name) {
   }
 
 
-  readme_path <- here::here(project_name, "README.txt")
+  readme_path <- here::here(location, project_name, "README.txt")
   cat(readme_content, file = readme_path)
 
   cat("Project folders created successfully, a new RStudio project has been initiated, and the README.txt file has been generated.\n")
