@@ -3,6 +3,8 @@ reworking of LabPlots
 
 The goal of `LabPlots2` is to standardize the look of ggplot2 plots made in the lab. It makes use of `hrbrthemes` with some tweaks and a custom colour palate. A number of helper functions are also included.
 
+Also includes a function for setting up a project file structure and for basic reading of Cerillo plate reader data.
+
 ## Installation
 
 You can install the development version of `LabPlots2` like so:
@@ -15,6 +17,7 @@ library('LabPlots2')
 ```
 ## Functions
 
+`create_project()` Takes a single variable - the name of the new project. Run this function where you want to the project to exist and it will generate a folder structure for you and generate a new RStudio project. 
 
 `lab_style()` Sets the standard LabPlot style and should be called once.  
 
