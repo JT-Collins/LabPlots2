@@ -6,8 +6,15 @@
 #'
 #' @export
 load_cerillo <- function(filename, Time_int = 10) {
+  # Check if required packages are installed and load the packages
+  required_packages <- c("readxl", "janitor", "dplyr", "tidyr", "data.table", "cellranger")
+  missing_packages <- required_packages[!sapply(required_packages, requireNamespace, quietly = TRUE)]
 
-  #factor_names <- c("Plate", "Biol", "Biological", "Tech_rep", "Technical", "BiolRep", "Replicate")
+  if (length(missing_packages) > 0) {
+    install_commands <- paste("install.packages('", missing_packages, "')", sep = "")
+    stop(paste("The following packages are required:", paste(missing_packages, collapse = ", "),
+               "please install using", paste(install_commands, collapse = " or ")))
+  }
 
   # Read in Cerillo data and map file ---------------------------------------
 

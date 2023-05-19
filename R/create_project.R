@@ -5,19 +5,49 @@
 #' @export
 
 create_project <- function(project_name, location = getwd()) {
-  # Create main project directory at the specified or current location
-  dir.create(here::here(location, project_name))
+
+  # Check if required packages are installed and load the packages
+  required_packages <- c("here", "usethis")
+  missing_packages <- required_packages[!sapply(required_packages, requireNamespace, quietly = TRUE)]
+
+  if (length(missing_packages) > 0) {
+    install_commands <- paste("install.packages('", missing_packages, "')", sep = "")
+    stop(paste("The following packages are required:", paste(missing_packages, collapse = ", "),
+               "please install using", paste(install_commands, collapse = " or ")))
+  }
+
+  # Create RStudio project
+  proj_path <- here::here(location, project_name)
+  tryCatch(
+    usethis::create_project(path = proj_path, open = FALSE),
+    error = function(e) {
+      warning("An error occurred while creating the RStudio project.")
+    }
+  )
+
+
+  # # Create main project directory at the specified or current location
+  # proj_dir <- here::here(location, project_name)
+  # tryCatch(
+  #   dir.create(proj_dir),
+  #   error = function(e) {
+  #     stop("An error occurred while creating the project directory.")
+  #   }
+  # )
 
   # Create subdirectories within the project directory
   subdirs <- c("data", "code", "output", "figs", "doc", "src")
 
   for (subdir in subdirs) {
-    dir.create(here::here(location, project_name, subdir), recursive = TRUE)
+    subdir_path <- here::here(location, project_name, subdir)
+    tryCatch(
+      dir.create(subdir_path, recursive = TRUE),
+      error = function(e) {
+        warning(paste("An error occurred while creating the '", subdir, "' subdirectory."))
+      }
+    )
   }
 
-  # Create RStudio project
-  setwd(here::here(location, project_name))
-  usethis::create_project(path = getwd(), open = FALSE)
 
   # Create readme.txt file
   readme_content <- paste0("This is the project folder for '", project_name, "'.\n\n")
