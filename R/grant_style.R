@@ -19,29 +19,24 @@ grant_style <- function() {
   options(ggplot2.discrete.colour = uofl_col )
   options(ggplot2.discrete.fill = uofl_col )
 
-  hrbrthemes::import_roboto_condensed()
+  #hrbrthemes::import_roboto_condensed()
+
 
   # Set ggplot2 options and theme settings
   ggplot2::theme_set(
-    hrbrthemes::theme_ipsum_rc(
+    hrbrthemes::theme_ipsum(
       grid = FALSE,
-      axis = FALSE,
-      ticks = TRUE,
-      base_size = 10,
+      #axis = 'yx',
+      axis_col = "#5A5A5A",
+      ticks = FALSE,
+      base_size = 8,
       plot_margin = ggplot2::margin(10, 5, 5, 10),
-      panel_spacing = grid::unit(1, "lines"),
-      plot_title_size = 12,
-      subtitle_size = 11,
-      axis_title_size = 12,
-      strip_text_size = 10,
-      axis.text.x = ggplot2::element_text(vjust = -1),
-      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1)),
-      plot.title = ggplot2::element_text(color = "grey30"),
-      plot.title.position = "plot",
-      axis.line = ggplot2::element_line(colour = "grey20", size = 0.4),
-      axis.ticks.length = ggplot2::unit(3, "pt"),
-      axis.text = ggplot2::element_text(color = "grey20")
-    )
+      #panel_spacing = grid::unit(1, "lines"),
+      plot_title_size = 9,
+      subtitle_size = 8,
+      axis_title_size = 9,
+      strip_text_size = 8
+          ) + theme(axis.line=element_line(linewidth=0.3))
   )
 
 }
