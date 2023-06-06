@@ -1,5 +1,5 @@
 #' @export
-grant_style <- function(col = "uofl_col") {
+grant_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   # Check if required packages are installed and load the packages
   required_packages <- c("hrbrthemes", "ggplot2", "grid")
@@ -11,15 +11,24 @@ grant_style <- function(col = "uofl_col") {
                "please install using", paste(install_commands, collapse = " or ")))
   }
 
+  colPal <- match.arg(colPal)
+
   # Set color palette
   uofl_col <- c("#8B9DA1", "#AD0000", "#004E74", "#FEBE10" ,"#00A89D","#7A6C53",  "#AAB43A", "#D9C982")
+
   alt_col <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
 
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
-  options(ggplot2.discrete.colour = col )
-  options(ggplot2.discrete.fill = col )
 
+  if (colPal == "alt_col"){
+  options(ggplot2.discrete.colour = alt_col )
+  options(ggplot2.discrete.fill = alt_col )
+  } else {
+    options(ggplot2.discrete.colour = uofl_col )
+    options(ggplot2.discrete.fill = uofl_col )
+
+  }
   #hrbrthemes::import_roboto_condensed()
 
 
