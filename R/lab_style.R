@@ -12,7 +12,18 @@ lab_style <- function() {
   }
 
   # Set color palette
-  uofl_col <- c("#8B9DA1", "#AD0000", "#004E74", "#FEBE10" ,"#00A89D","#7A6C53",  "#AAB43A", "#D9C982")
+  uofl_col <- c("#ad0000",
+                "#004e74",
+                "#8b9da1",
+                "#00a89d",
+                "#ffba00",
+                "#544009",
+                "#698900",
+                "#ddcb2e")
+
+  dark_text <- "#343D46"
+  mid_text <- "#4E565E"
+  light_text <- "#686F76"
 
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
@@ -33,15 +44,15 @@ lab_style <- function() {
       plot_title_size = 16,
       subtitle_size = 14,
       axis_title_size = 14,
-      strip_text_size = 11,
-      axis.text.x = ggplot2::element_text(vjust = -1),
-      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1)),
-      plot.title = ggplot2::element_text(color = "grey30"),
-      plot.title.position = "plot",
-      axis.line = ggplot2::element_line(colour = "grey20", size = 0.5),
-      axis.ticks.length = ggplot2::unit(3, "pt"),
-      axis.text = ggplot2::element_text(color = "grey20")
-    )
+      strip_text_size = 11
+
+    ) + theme(text = ggplot2::element_text(colour = mid_text),
+              axis.text.x = ggplot2::element_text(vjust = -1,colour = light_text),
+              axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1), colour = light_text),
+              plot.title = ggplot2::element_text(color = dark_text),
+              plot.title.position = "plot",
+              axis.line = ggplot2::element_line(colour = light_text, linewidth = 0.5),
+              axis.ticks.length = ggplot2::unit(3, "pt"))
   )
 
 }

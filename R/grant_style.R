@@ -18,6 +18,10 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   alt_col <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
 
+  dark_text <- "#1A242F"
+  mid_text <- "#343D46"
+  light_text <- "#4E565E"
+
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
 
@@ -44,9 +48,14 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
       #panel_spacing = grid::unit(1, "lines"),
       plot_title_size = 9,
       subtitle_size = 8,
+      subtitle_margin = 10,
       axis_title_size = 9,
       strip_text_size = 8
-          ) + theme(axis.line=element_line(linewidth=0.3))
+          ) + theme(text = element_text(colour = mid_text),
+                    plot.title = element_text(colour = dark_text),
+                    axis.text.y = element_text(colour = light_text),
+                    axis.line=element_line(linewidth=0.3),
+                    axis.text.x = element_text(colour = light_text, margin = margin(t = 3, b = 3)))
   )
 
 }
