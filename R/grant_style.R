@@ -14,16 +14,29 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
   colPal <- match.arg(colPal)
 
   # Set color palette
-  uofl_col <- c("#ad0000",
-                              "#004e74",
-                              "#8b9da1",
-                              "#00a89d",
-                              "#ffba00",
-                              "#544009",
-                              "#698900",
-                              "#ddcb2e")
+  uofl_col <- c(
+    "#ad0000",
+    "#004e74",
+    "#8b9da1",
+    "#00a89d",
+    "#ffba00",
+    "#544009",
+    "#698900",
+    "#ddcb2e"
+  )
 
-  alt_col <- c("#41afaa", "#466eb4", "#00a0e1", "#e6a532", "#d7642c", "#af4b91")
+  alt_col <- c(
+    '#444444',
+    '#de6757',
+    '#466eb4',
+    '#d7642c',
+    '#af4b91',
+    '#00a0e1',
+    '#41a65c',
+    '#5E2C25',
+    '#78695F'
+  )
+
 
   dark_text <- "#1A242F"
   mid_text <- "#343D46"
@@ -40,34 +53,44 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
     options(ggplot2.discrete.fill = uofl_col )
 
   }
-  #hrbrthemes::import_roboto_condensed()
-
 
   # Set ggplot2 options and theme settings
   ggplot2::theme_set(
     hrbrthemes::theme_ipsum(
-      grid = FALSE,
-      #axis = 'yx',
+      grid = TRUE,
+      axis = FALSE,
       axis_col = "#5A5A5A",
       ticks = FALSE,
       base_size = 8,
-      #plot_margin = ggplot2::margin(10, 5, 5, 10),
       plot_margin = ggplot2::margin(2, 2, 2, 2),
-      #panel_spacing = grid::unit(1, "lines"),
       plot_title_size = 9,
       subtitle_size = 8,
-      subtitle_margin = 5,
+      subtitle_margin = 4,
       axis_title_size = 9,
       strip_text_size = 8
           ) + theme(text = element_text(colour = mid_text),
-                    plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1),
-                    plot.subtitle = ggtext::element_markdown(lineheight = 1.1),
-                    #plot.title = element_text(colour = dark_text),
+                    plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1,
+                                                          margin = margin(b = 4.8),),
+                    plot.subtitle = ggtext::element_markdown(lineheight = 1.1,
+                                                             margin = margin(b = 3.6)),
                     plot.title.position = "plot",
-                    axis.text.y = element_text(colour = light_text),
-                    axis.line=element_line(linewidth=0.3),
-                    axis.text.x = element_text(colour = light_text, margin = margin(t = 3, b = 3)))
-  )
+                    axis.title.x = element_text(margin = margin(t = 4)),
+                    axis.title.x.top = element_text(margin = margin(b = 4)),
+                    axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
+                    axis.text.y = element_text(colour = light_text, margin = margin(r = 1.6)),
+                    #axis.line = element_line(linewidth=0.3),
+                    axis.text.x = element_text(colour = light_text, margin = margin(t = 1.6)),
+                    axis.text.x.top   = element_text(margin = margin(b = 1.6)),
+                    axis.text.y.right = element_text(margin = margin(l = 1.6)),
+                    axis.ticks.length = unit(2, "pt"),
+                    panel.grid.major = element_line(linetype='dashed'),
+                    panel.grid.minor = element_blank(),
+                    panel.spacing = grid::unit(4, "pt")
+
+  ))
+
+  update_geom_defaults("boxplot",   list(fill = "snow", linewidth = 0.2, colour = light_text))
+
   message(paste("ggtext is used to call plot.title and plot.subtitle enabling simple Markdown and HTML",
                 "rendering for ggplot2. See https://wilkelab.org/ggtext/"))
 
