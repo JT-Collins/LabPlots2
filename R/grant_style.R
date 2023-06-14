@@ -45,12 +45,12 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
 
-  if (colPal == "alt_col"){
-  options(ggplot2.discrete.colour = alt_col )
-  options(ggplot2.discrete.fill = alt_col )
+  if (colPal == "uofl_col"){
+  options(ggplot2.discrete.colour = uofl_col )
+  options(ggplot2.discrete.fill = uofl_col )
   } else {
-    options(ggplot2.discrete.colour = uofl_col )
-    options(ggplot2.discrete.fill = uofl_col )
+    options(ggplot2.discrete.colour = alt_col )
+    options(ggplot2.discrete.fill = alt_col )
 
   }
 
