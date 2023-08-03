@@ -4,7 +4,7 @@
 \alias{load_cerillo}
 \title{load_cerillo}
 \usage{
-load_cerillo(filename, Time_int = 10)
+load_cerillo(filename, Time_int = 10, range = "F:CW")
 }
 \arguments{
 \item{filename}{The excel file that contains your OD600 readings in the 'dat' sheet and the variable data on the 'map' sheet}

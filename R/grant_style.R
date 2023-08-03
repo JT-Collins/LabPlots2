@@ -1,5 +1,5 @@
 #' @export
-grant_style <- function(colPal = c("uofl_col", "alt_col")) {
+grant_style <- function(colPal = c("alt_col","uofl_col")) {
 
   # Check if required packages are installed and load the packages
   required_packages <- c("hrbrthemes", "ggplot2", "grid", "ggtext")
@@ -57,18 +57,18 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
   # Set ggplot2 options and theme settings
   ggplot2::theme_set(
     hrbrthemes::theme_ipsum(
-      grid = TRUE,
-      axis = FALSE,
+      grid = FALSE,
+      axis = TRUE,
       axis_col = "#5A5A5A",
-      ticks = FALSE,
+      ticks = TRUE,
       base_size = 8,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
-      plot_title_size = 10,
-      subtitle_size = 9,
+      plot_title_size = 9,
+      subtitle_size = 8,
       subtitle_margin = 4,
       axis_title_size = 9,
-      strip_text_size = 9,
-      caption_size = 8,
+      strip_text_size = 8,
+      caption_size = 9 ,
       caption_face = "plain",
       caption_margin = 4
           ) + theme(text = element_text(colour = mid_text),
@@ -82,13 +82,13 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
                     axis.title.x = element_text(margin = margin(t = 3, b = 3)),
                     axis.title.x.top = element_text(margin = margin(b = 4)),
                     axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
-                    axis.text.y = element_text(colour = light_text, margin = margin(r = 1.6)),
-                    axis.text.x = element_text(colour = light_text, margin = margin(t = 1.6)),
+                    axis.text.y = element_text(size = 8, colour = light_text, margin = margin(r = 1.6)),
+                    axis.text.x = element_text(size = 8, colour = light_text, margin = margin(t = 1.6)),
                     axis.text.x.top   = element_text(margin = margin(b = 1.6)),
                     axis.text.y.right = element_text(margin = margin(l = 1.6)),
                     axis.ticks.length = unit(2, "pt"),
-                    panel.grid.major = element_line(linetype='dashed'),
-                    panel.grid.minor = element_blank(),
+                    # panel.grid.major = element_line(linetype='dashed'),
+                    # panel.grid.minor = element_blank(),
                     panel.spacing = grid::unit(6, "pt"),
                     legend.spacing        = unit(4, "pt"),
                     legend.margin         = margin(0, 0, 0, 0, "cm"),
@@ -120,3 +120,4 @@ grant_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   message(paste("If saving as a pdf file use 'device = cairo_pdf' to ensure correct font use"))
 }
+

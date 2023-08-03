@@ -4,7 +4,7 @@
 \alias{create_project}
 \title{create_project}
 \usage{
-create_project(project_name)
+create_project(project_name, location = getwd())
 }
 \arguments{
 \item{project_name}{Generate a new project and subfolders}
