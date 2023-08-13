@@ -1,12 +1,12 @@
 #' Calculate area under the curve
-#' 
+#'
 #' Note: This function is taken straight from Mike Blazanin's gcplyr package
 #' please see https://mikeblazanin.github.io/gcplyr/ for much more functionality
-#' 
+#'
 #' This function takes a vector of \code{x} and \code{y} values
-#' and returns a scalar for the area under the curve, calculated using 
-#' the trapezoid rule
-#'  
+#' and returns a scalar for the area under the curve, calculated using
+#' the trapezoid rule.
+#'
 #' @param x Numeric vector of x values
 #' @param y Numeric vector of y values
 #' @param xlim Vector, of length 2, delimiting the x range over which the
@@ -16,39 +16,39 @@
 #' @param blank Value to be subtracted from \code{y} values before calculating
 #'              area under the curve
 #' @param na.rm a logical indicating whether missing values should be removed
-#' @param neg.rm a logical indicating whether \code{y} values below zero should 
+#' @param neg.rm a logical indicating whether \code{y} values below zero should
 #'               be treated as zeros. If \code{FALSE}, area under the curve
 #'               for negative \code{y} values will be calculated normally,
 #'               effectively subtracting from the returned value.
-#' 
-#' @details 
+#'
+#' @details
 #' This function is designed to be compatible for use within
 #'  \code{dplyr::group_by} and \code{dplyr::summarize}
 #'
 #' @return A scalar for the total area under the curve
-#'             
+#'
 #' @export
 
 auc <- function(x, y, xlim = NULL, blank = 0, na.rm = TRUE, neg.rm = FALSE) {
   if(!is.vector(x)) {stop(paste("x is not a vector, it is class:", class(x)))}
   if(!is.vector(y)) {stop(paste("y is not a vector, it is class:", class(y)))}
-  
+
   x <- make.numeric(x)
   y <- make.numeric(y)
-  
+
   #remove nas
   dat <- rm_nas(x = x, y = y, na.rm = na.rm, stopifNA = TRUE)
-  
+
   if(length(dat$y) <= 1) {return(NA)}
-  
+
   #reorder
   dat <- reorder_xy(x = dat[["x"]], y = dat[["y"]])
-  
+
   x <- dat[["x"]]
   y <- dat[["y"]]
-  
+
   y <- y - blank
-  
+
   #Check if xlim has been specified
   if(!is.null(xlim)) {
     stopifnot(is.vector(xlim), length(xlim) == 2, any(!is.na(xlim)))
@@ -64,15 +64,15 @@ auc <- function(x, y, xlim = NULL, blank = 0, na.rm = TRUE, neg.rm = FALSE) {
         y <- c(y, solve_linear(x1 = x[xndx], y1 = y[xndx],
                                x2 = x[xndx+1], y2 = y[xndx+1],
                                x3 = xlim[1], named = FALSE))
-        
+
         #reorder
         dat <- reorder_xy(x = x, y = y)
-        
+
         x <- dat[["x"]]
         y <- dat[["y"]]
       }
     }
-    
+
     if(xlim[2] > x[length(x)]) {
       warning("xlim specifies upper limit above the range of x\n")
       xlim[2] <- x[length(x)]
@@ -83,10 +83,10 @@ auc <- function(x, y, xlim = NULL, blank = 0, na.rm = TRUE, neg.rm = FALSE) {
         y <- c(y, solve_linear(x1 = x[xndx], y1 = y[xndx],
                                x2 = x[xndx+1], y2 = y[xndx+1],
                                x3 = xlim[2], named = FALSE))
-        
+
         #reorder
         dat <- reorder_xy(x = x, y = y)
-        
+
         x <- dat[["x"]]
         y <- dat[["y"]]
       }
@@ -94,15 +94,15 @@ auc <- function(x, y, xlim = NULL, blank = 0, na.rm = TRUE, neg.rm = FALSE) {
     y <- y[(x >= xlim[1]) & (x <= xlim[2])]
     x <- x[(x >= xlim[1]) & (x <= xlim[2])]
   }
-  
+
   if(any(y < 0)) {
     if(neg.rm == TRUE) {y[y < 0] <- 0
     } else {warning("some y values are below 0")}
   }
-  
+
   #Calculate auc
   # area = 0.5 * (y1 + y2) * (x2 - x1)
-  return(sum(0.5 * 
+  return(sum(0.5 *
                (y[1:(length(y)-1)] + y[2:length(y)]) *
                (x[2:length(x)] - x[1:(length(x)-1)])))
 }
@@ -115,17 +115,17 @@ make.numeric <- function(x, varname) {
 
 rm_nas <- function(..., na.rm, stopifNA = FALSE) {
   out <- list(..., "nas_indices_removed" = NULL)
-  
+
   lengths <- unlist(lapply(list(...), length))
   if(!all_same(lengths[lengths != 0])) {
-    stop(paste(paste(names(list(...)), collapse = ","), 
+    stop(paste(paste(names(list(...)), collapse = ","),
                "are not all the same length"))}
-  
+
   if(na.rm == TRUE) {
-    out[["nas_indices_removed"]] <- 
+    out[["nas_indices_removed"]] <-
       unique(unlist(lapply(X = list(...), FUN = function(x) which(is.na(x)))))
     if(length(out[["nas_indices_removed"]]) > 0) {
-      out[["nas_indices_removed"]] <- 
+      out[["nas_indices_removed"]] <-
         out[["nas_indices_removed"]][order(out[["nas_indices_removed"]])]
       out[names(out) != "nas_indices_removed"] <-
         lapply(X = out[names(out) != "nas_indices_removed"],
@@ -137,7 +137,7 @@ rm_nas <- function(..., na.rm, stopifNA = FALSE) {
       stop("Some values are NA but na.rm = FALSE")
     }
   }
-  
+
   return(out)
 }
 
@@ -154,6 +154,6 @@ reorder_xy <- function(x = NULL, y) {
     y <- y[start_order]
     x <- x[start_order]
   } else {start_order <- 1:length(y)}
-  
+
   return(list(x = x, y = y, order = start_order))
 }
