@@ -47,7 +47,7 @@ load_cerillo <- function(filename, Time_int = 10, range = "F:CW") {
     dplyr::mutate(Time = rep(seq(0,max_time, by = Time_int), times = ncol(dat))) %>%
     group_by(across(c(-Time, -OD600))) %>%
     mutate(Med = zoo::rollmedian(OD600, k = 3, fill='extend'),
-           Smooth = zoo::rollmean(OD600, k = 3, fill='extend')) %>%
+           Smooth = zoo::rollmean(Med, k = 3, fill='extend')) %>%
     ungroup()
 
 
@@ -55,17 +55,9 @@ load_cerillo <- function(filename, Time_int = 10, range = "F:CW") {
     df %>%
     group_by(across(c(-Well, -OD600, -Med, -Smooth))) %>%
     summarise(mean_OD = mean(OD600),
-              #median_OD = median(OD600),
               sd_OD = sd(OD600),
-              #IQR_OD = IQR(OD600),
-              #mad_OD = mad(OD600),
-              #max_OD = max(OD600),
               S_mean_OD = mean(Smooth),
-              #S_median_OD = median(Smooth),
               S_sd_OD = sd(Smooth),
-              #S_IQR_OD = IQR(Smooth),
-              #S_mad_OD = mad(Smooth),
-              #S_max_OD = max(Smooth),
               reps = n()) %>%
     ungroup()
 
