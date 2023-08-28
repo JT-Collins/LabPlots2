@@ -101,18 +101,18 @@ grant_style <- function(colPal = c("alt_col","uofl_col")) {
 
   update_geom_defaults("boxplot",
                        list(
-                         fill = "gray98",
-                         linewidth = 0.2,
+                         fill = "#ffffd9",
+                         linewidth = 0.3,
                          colour = light_text
                        ))
   update_geom_defaults("point",
                        list(
                          shape = 21,
-                         fill = "gray90",
+                         fill = "gray99",
                          color = dark_text,
                          size = 1.8,
                          alpha = 1,
-                         stroke = 0.2
+                         stroke = 0.3
                        ))
 
   message(paste("ggtext is used to call plot.title and plot.subtitle enabling simple Markdown and HTML",

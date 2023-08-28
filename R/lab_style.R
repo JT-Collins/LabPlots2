@@ -70,6 +70,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
     ) + theme(text = ggplot2::element_text(colour = mid_text),
               axis.text.x = ggplot2::element_text(vjust = -1,colour = light_text),
               axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1), colour = light_text),
+              axis.title.x = element_text(vjust = -0.75),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1),
               plot.subtitle = ggtext::element_markdown(lineheight = 1.1),
               #plot.title = ggplot2::element_text(color = dark_text),
