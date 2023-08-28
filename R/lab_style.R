@@ -59,13 +59,13 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
       grid = FALSE,
       axis = FALSE,
       ticks = TRUE,
-      base_size = 10,
+      base_size = 20,
       plot_margin = ggplot2::margin(10, 5, 5, 10),
       panel_spacing = grid::unit(1, "lines"),
-      plot_title_size = 16,
-      subtitle_size = 14,
-      axis_title_size = 14,
-      strip_text_size = 11
+      plot_title_size = 24,
+      subtitle_size = 22,
+      axis_title_size = 22,
+      strip_text_size = 22
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
               axis.text.x = ggplot2::element_text(vjust = -1,colour = light_text),
@@ -73,6 +73,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
               axis.title.x = element_text(vjust = -0.75),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1),
               plot.subtitle = ggtext::element_markdown(lineheight = 1.1),
+              strip.text = element_text(colour = dark_text),
               #plot.title = ggplot2::element_text(color = dark_text),
               plot.title.position = "plot",
               axis.line = ggplot2::element_line(colour = light_text, linewidth = 0.5),
