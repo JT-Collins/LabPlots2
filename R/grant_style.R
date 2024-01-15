@@ -37,7 +37,7 @@ grant_style <- function(colPal = c("alt_col","uofl_col")) {
     '#78695F'
   )
 
-
+  black_text <- "#010203"
   dark_text <- "#1A242F"
   mid_text <- "#343D46"
   light_text <- "#4E565E"
@@ -59,7 +59,7 @@ grant_style <- function(colPal = c("alt_col","uofl_col")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = TRUE,
-      axis_col = "#5A5A5A",
+      axis_col = "#343D46",
       ticks = TRUE,
       base_size = 8,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
@@ -71,7 +71,7 @@ grant_style <- function(colPal = c("alt_col","uofl_col")) {
       caption_size = 9 ,
       caption_face = "plain",
       caption_margin = 4
-          ) + theme(text = element_text(colour = mid_text),
+          ) + theme(text = element_text(colour = black_text),
                     plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1,
                                                           margin = margin(b = 4.8),),
                     plot.subtitle = ggtext::element_textbox_simple(lineheight = 1.1,
@@ -82,8 +82,8 @@ grant_style <- function(colPal = c("alt_col","uofl_col")) {
                     axis.title.x = element_text(margin = margin(t = 3, b = 3)),
                     axis.title.x.top = element_text(margin = margin(b = 4)),
                     axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
-                    axis.text.y = element_text(size = 8, colour = light_text, margin = margin(r = 1.6)),
-                    axis.text.x = element_text(size = 8, colour = light_text, margin = margin(t = 1.6)),
+                    axis.text.y = element_text(size = 8, colour = black_text, margin = margin(r = 1.6)),
+                    axis.text.x = element_text(size = 8, colour = black_text, margin = margin(t = 1.6)),
                     axis.text.x.top   = element_text(margin = margin(b = 1.6)),
                     axis.text.y.right = element_text(margin = margin(l = 1.6)),
                     axis.ticks.length = unit(2, "pt"),
