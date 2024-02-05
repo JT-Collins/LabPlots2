@@ -1,5 +1,7 @@
 #' @export
-grant_style_small <- function(colPal = c("alt_col","uofl_col")) {
+grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
+
+  #source("pallettes.R") # pull in colour options -- aparently not needed in a package
 
   # Check if required packages are installed and load the packages
   required_packages <- c("hrbrthemes", "ggplot2", "grid", "ggtext")
@@ -13,44 +15,21 @@ grant_style_small <- function(colPal = c("alt_col","uofl_col")) {
 
   colPal <- match.arg(colPal)
 
-  # Set color palette
-  uofl_col <- c(
-    "#ad0000",
-    "#004e74",
-    "#8b9da1",
-    "#00a89d",
-    "#ffba00",
-    "#544009",
-    "#698900",
-    "#ddcb2e"
-  )
 
-  alt_col <- c(
-    '#444444',
-    '#de6757',
-    '#466eb4',
-    '#d7642c',
-    '#af4b91',
-    '#00a0e1',
-    '#41a65c',
-    '#5E2C25',
-    '#78695F'
-  )
-
-  black_text <- "#010203"
-  dark_text <- "#1A242F"
-  mid_text <- "#343D46"
-  light_text <- "#4E565E"
 
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
 
-  if (colPal == "uofl_col"){
-    options(ggplot2.discrete.colour = uofl_col )
-    options(ggplot2.discrete.fill = uofl_col )
+  if (colPal == "pal2"){
+    options(ggplot2.discrete.colour = pal2 )
+    options(ggplot2.discrete.fill = pal2 )
+  } else if (colPal == "pal3"){
+    options(ggplot2.discrete.colour = pal3 )
+    options(ggplot2.discrete.fill = pal3 )
+
   } else {
-    options(ggplot2.discrete.colour = alt_col )
-    options(ggplot2.discrete.fill = alt_col )
+    options(ggplot2.discrete.colour = pal1 )
+    options(ggplot2.discrete.fill = pal1 )
 
   }
 
