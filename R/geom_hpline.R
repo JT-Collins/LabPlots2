@@ -49,7 +49,7 @@ geom_hpline <- function(mapping = NULL, data = NULL,
 #' @format NULL
 #' @usage NULL
 #' @export
-GeomHpline <- ggproto("GeomHpline", GeomSegment,
+GeomHpline <- ggplot2::ggproto("GeomHpline", GeomSegment,
                       required_aes = c("x", "y"),
                       non_missing_aes = c("size", "colour", "linetype", "width"),
                       default_aes = aes(
@@ -94,7 +94,7 @@ geom_vpline <- function(mapping = NULL, data = NULL,
 #' @format NULL
 #' @usage NULL
 #' @export
-GeomVpline <- ggproto("GeomVpline", GeomSegment,
+GeomVpline <- ggplot2::ggproto("GeomVpline", GeomSegment,
                       required_aes = c("x", "y"),
                       non_missing_aes = c("size", "colour", "linetype", "height"),
                       default_aes = aes(
