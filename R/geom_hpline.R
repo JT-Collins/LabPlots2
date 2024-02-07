@@ -8,6 +8,7 @@
 #' to set the length of the line segment. All other aesthetics (`colour`, `size`,
 #' `linetype`, etc.) are inherited from [`geom_segment()`].
 #' @inheritParams ggplot2::geom_point
+#' @importFrom ggplot2 ggplot aes
 #' @examples
 #' library(ggplot2)
 #' ggplot(iris, aes(Species, Sepal.Length)) +
