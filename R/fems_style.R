@@ -49,7 +49,6 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
       caption_face = "plain",
       caption_margin = 4
     ) + theme(text = element_text(colour = black_text),
-              axis.line = element_line(linewidth = 1.5),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1,
                                                     margin = margin(b = 4.8),),
               plot.subtitle = ggtext::element_textbox_simple(lineheight = 1.1,
