@@ -37,7 +37,6 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
       grid = FALSE,
       axis = TRUE,
       axis_col = "#010B13",
-      axis_title_size = 16,
       ticks = TRUE,
       base_size = 16,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
