@@ -34,7 +34,7 @@ grant_style <- function(colPal = c("pal1","pal2", "pal3")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = TRUE,
-      axis_col = "#343D46",
+      axis_col = "#010B13",
       ticks = TRUE,
       base_size = 8,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
