@@ -36,7 +36,7 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = TRUE,
-      axis_col = "#010B13",
+      axis_col = "#343D46",
       ticks = TRUE,
       base_size = 16,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
@@ -56,8 +56,8 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
               plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	"#010B13"),
               plot.caption.position = "plot",
               plot.title.position = "plot",
-              axis.line.x = element_line(linewidth = 1.5/2.13, colour = dark_text), # 1.5 is pt size
-              axis.line.y = element_line(linewidth = 1.5/2.13, colour = dark_text), # 1.5 is pt size
+              axis.line.x = element_line(linewidth = 1.5/2.13, colour = '#343D46'), # 1.5 is pt size
+              axis.line.y = element_line(linewidth = 1.5/2.13, colour = '#343D46'), # 1.5 is pt size
               axis.title.x = element_text(margin = margin(t = 3, b = 3)),
               axis.title.x.top = element_text(margin = margin(b = 4)),
               axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
@@ -65,7 +65,8 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
               axis.text.x = element_text(size = 16, colour = black_text, margin = margin(t = 1.6)),
               axis.text.x.top   = element_text(margin = margin(b = 1.6)),
               axis.text.y.right = element_text(margin = margin(l = 1.6)),
-              axis.ticks.length = unit(2, "pt"),
+              axis.ticks.length = unit(5, "pt"),
+              axis.ticks = element_line(linewidth = 1.5/2.13, colour = '#343D46'),
               # panel.grid.major = element_line(linetype='dashed'),
               # panel.grid.minor = element_blank(),
               panel.spacing = grid::unit(6, "pt"),
