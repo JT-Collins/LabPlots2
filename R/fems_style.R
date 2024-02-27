@@ -36,7 +36,7 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = TRUE,
-      axis_col = "#010B13",
+      axis_col = "black",
       ticks = TRUE,
       base_size = 16,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
@@ -56,7 +56,7 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
               plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	"#010B13"),
               plot.caption.position = "plot",
               plot.title.position = "plot",
-              axis.line = element_line(size = 3.195),
+              axis.line = element_line(linewidth = 3.195),
               axis.title.x = element_text(margin = margin(t = 3, b = 3)),
               axis.title.x.top = element_text(margin = margin(b = 4)),
               axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
@@ -80,7 +80,7 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
   update_geom_defaults("boxplot",
                        list(
                          fill = "#ffffd9",
-                         linewidth = 0.3,
+                         linewidth = 1,
                          colour = light_text
                        ))
   update_geom_defaults("point",
@@ -90,7 +90,7 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
                          color = dark_text,
                          size = 1.8,
                          alpha = 1,
-                         stroke = 0.3
+                         stroke = 0.5
                        ))
 
   message(paste("ggtext is used to call plot.title and plot.subtitle enabling simple Markdown and HTML",
