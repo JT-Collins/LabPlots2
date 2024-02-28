@@ -112,3 +112,21 @@ guess_signif_label_column <- function(data) {
   }
   res
 }
+
+#' @title Convert font sizes measured as points to ggplot font sizes
+#' @description Converts font sizes measured as points (as given by most programs such as MS Word etc.) to ggplot font sizes
+#' @param x numeric vector giving the font sizes in points
+#' @return Returns a numeric vector of length \code{x} of ggplot font sizes
+#' @keywords internal
+#' @export
+#'
+FS <- function(x) x/2.845276 # x is the desired font / line size in pt
+
+#' @title Convert line sizes measured as points to ggplot line sizes
+#' @description Converts line sizes measured as points (as given by most programs such as Adobe Illustrator etc.) to ggplot font sizes
+#' @param x numeric vector giving the lines sizes in points
+#' @return Returns a numeric vector of length \code{x} of ggplot line sizes
+#' @keywords internal
+#' @export
+#'
+LS <- function(x) x/2.13
