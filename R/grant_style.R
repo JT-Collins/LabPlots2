@@ -72,7 +72,8 @@ grant_style <- function(colPal = c("pal1","pal2", "pal3")) {
                     legend.key.size       = grid::unit(0.5, "lines"),
                     legend.box.margin     = margin(0, 0, 0, 0, "cm"),
                     legend.box.background = element_blank(),
-                    legend.box.spacing    = unit(4, "pt")
+                    legend.box.spacing    = unit(4, "pt"),
+                    plot.tag = element_text(face = 'bold', size = 10)
 
   ))
 
