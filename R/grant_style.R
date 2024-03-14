@@ -54,8 +54,8 @@ grant_style <- function(colPal = c("pal1","pal2", "pal3")) {
                     plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	"#010B13"),
                     plot.caption.position = "plot",
                     plot.title.position = "plot",
-                    axis.line.x = element_line(linewidth = LS(1), colour = '#343D46'), # 1 is pt size
-                    axis.line.y = element_line(linewidth = LS(1), colour = '#343D46'), # 1 is pt size
+                    axis.line.x = element_line(linewidth = LS(0.75), colour = '#343D46'), # 1 is pt size
+                    axis.line.y = element_line(linewidth = LS(0.75), colour = '#343D46'), # 1 is pt size
                     axis.title.x = element_text(margin = margin(t = 3, b = 3)),
                     axis.title.x.top = element_text(margin = margin(b = 4)),
                     axis.title.y = element_text(angle = 90, margin = margin(r = 4)),
