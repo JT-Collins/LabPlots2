@@ -76,7 +76,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
               strip.text = element_text(colour = dark_text),
               #plot.title = ggplot2::element_text(color = dark_text),
               plot.title.position = "plot",
-              axis.line = ggplot2::element_line(colour = light_text, linewidth = 0.5),
+              axis.line = ggplot2::element_line(colour = light_text, lineend = 'square',linewidth = LS(1)),
               axis.ticks.length = ggplot2::unit(3, "pt"))
   )
 
