@@ -13,41 +13,19 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   colPal <- match.arg(colPal)
 
-  # Set color palette
-  uofl_col <- c("#ad0000",
-                "#004e74",
-                "#8b9da1",
-                "#00a89d",
-                "#ffba00",
-                "#544009",
-                "#698900",
-                "#ddcb2e")
-
-  alt_col <- c(
-    '#444444',
-    '#de6757',
-    '#d7642c',
-    '#466eb4',
-    '#FF8D7D',
-    '#af4b91',
-    '#00a0e1',
-    '#41a65c',
-    '#5E2C25',
-    '#78695F'
-  )
-
-  dark_text <- "#343D46"
-  mid_text <- "#4E565E"
-  light_text <- "#686F76"
-
   options(ggplot2.continuous.colour="viridis")
   options(ggplot2.continuous.fill = "viridis")
-  if (colPal == "alt_col"){
-    options(ggplot2.discrete.colour = alt_col )
-    options(ggplot2.discrete.fill = alt_col )
+
+  if (colPal == "pal2"){
+    options(ggplot2.discrete.colour = pal2 )
+    options(ggplot2.discrete.fill = pal2 )
+  } else if (colPal == "pal3"){
+    options(ggplot2.discrete.colour = pal3 )
+    options(ggplot2.discrete.fill = pal3 )
+
   } else {
-    options(ggplot2.discrete.colour = uofl_col )
-    options(ggplot2.discrete.fill = uofl_col )
+    options(ggplot2.discrete.colour = pal1 )
+    options(ggplot2.discrete.fill = pal1 )
 
   }
 
@@ -58,9 +36,9 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
     hrbrthemes::theme_ipsum_rc(
       grid = FALSE,
       axis = FALSE,
-      ticks = TRUE,
+      ticks = FALSE,
       base_size = 20,
-      plot_margin = ggplot2::margin(10, 5, 5, 10),
+      plot_margin = ggplot2::margin(15, 10, 10, 15),
       panel_spacing = grid::unit(1, "lines"),
       plot_title_size = 24,
       subtitle_size = 22,
@@ -68,15 +46,15 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
       strip_text_size = 22
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
-              axis.text.x = ggplot2::element_text(vjust = -1,colour = light_text),
-              axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1), colour = light_text),
+              axis.text.x = ggplot2::element_text(vjust = -1,colour = mid_text),
+              axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1), colour = mid_text),
               axis.title.x = element_text(vjust = -0.75),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1),
               plot.subtitle = ggtext::element_markdown(lineheight = 1.1),
               strip.text = element_text(colour = dark_text),
               #plot.title = ggplot2::element_text(color = dark_text),
               plot.title.position = "plot",
-              axis.line = ggplot2::element_line(colour = light_text, lineend = 'square',linewidth = LS(1)),
+              axis.line = ggplot2::element_line(colour = mid_text, lineend = 'square',linewidth = LS(1.5)),
               axis.ticks.length = ggplot2::unit(3, "pt"))
   )
 

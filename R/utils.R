@@ -130,3 +130,14 @@ FS <- function(x) x/2.845276 # x is the desired font / line size in pt
 #' @export
 #'
 LS <- function(x) x/2.13
+
+#' @title default ggsave for powerpoint figs
+#' @description saves at sensible default for powerpoint
+#' @param
+#' @return Returns a PDF or SVG for further manipulation
+#' @keywords internal
+#' @export
+#'
+pp.ggsave <- function(filename = default_name(plot), height= 10, width= 5.625,...) {
+  ggsave(filename=filename, height=height, width=width, ...)
+}
