@@ -29,11 +29,11 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   }
 
-  # Import Roboto Condensed font
-  hrbrthemes::import_roboto_condensed()
+  # Import public sans Condensed font
+  hrbrthemes::import_public_sans()
 
   ggplot2::theme_set(
-    hrbrthemes::theme_ipsum_rc(
+    hrbrthemes::theme_ipsum_pub(
       grid = FALSE,
       axis = FALSE,
       ticks = FALSE,
