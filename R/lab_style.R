@@ -36,14 +36,13 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = FALSE,
-      ticks = FALSE,
+      ticks = TRUE,
       base_size = 20,
       plot_margin = ggplot2::margin(15, 10, 10, 15),
-      panel_spacing = grid::unit(1, "lines"),
       plot_title_size = 24,
       subtitle_size = 22,
-      axis_title_size = 22,
-      strip_text_size = 22
+      axis_title_size = 20,
+      strip_text_size = 20
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
               axis.text.x = ggplot2::element_text(vjust = -1,colour = mid_text),
@@ -54,6 +53,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
               strip.text = element_text(colour = dark_text),
               #plot.title = ggplot2::element_text(color = dark_text),
               plot.title.position = "plot",
+              panel.spacing = grid::unit(1, "lines"),
               axis.line = ggplot2::element_line(colour = mid_text, lineend = 'square',linewidth = LS(1.5)),
               axis.ticks.length = ggplot2::unit(3, "pt"))
   )
