@@ -36,7 +36,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = FALSE,
-      ticks = TRUE,
+      ticks = FALSE,
       base_size = 20,
       plot_margin = ggplot2::margin(15, 10, 10, 15),
       plot_title_size = 24,
