@@ -59,10 +59,11 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
               axis.line = element_line(lineend = 'square'),
               axis.line.x = element_line(linewidth = LS(1.5), colour = '#343D46'), # 1.5 is pt size
               axis.line.y = element_line(linewidth = LS(1.5), colour = '#343D46'), # 1.5 is pt size
-              axis.title.x = element_text(margin = margin(t = 3, b = 3)),
+              axis.title.x = element_text(hjust = 0.5,
+                                          margin = margin(t = 3, b = 3)),
               axis.title.x.top = element_text(margin = margin(b = 4)),
               axis.title.y = element_text(angle = 90,
-                                          vjust = 0.5,
+                                          hjust = 0.5,
                                           margin = margin(r = 4)),
               axis.text.y = element_text(size = 16,
                                          colour = black_text,
