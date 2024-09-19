@@ -90,8 +90,8 @@ fems_style <- function(colPal = c("pal1","pal2", "pal3")) {
   update_geom_defaults("boxplot",
                        list(
                          fill = "#ffffd9",
-                         linewidth = 1,
-                         colour = light_text
+                         linewidth = LS(1),
+                         colour = "#010B13"
                        ))
   update_geom_defaults("point",
                        list(
