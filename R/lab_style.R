@@ -36,13 +36,13 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
     hrbrthemes::theme_ipsum(
       grid = FALSE,
       axis = FALSE,
-      ticks = FALSE,
+      ticks = TRUE,
       base_size = 20,
       plot_margin = ggplot2::margin(15, 10, 10, 15),
-      plot_title_size = 24,
-      subtitle_size = 22,
-      axis_title_size = 20,
-      strip_text_size = 20
+      plot_title_size = 20,
+      subtitle_size = 18,
+      axis_title_size = 16,
+      strip_text_size = 14
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
               axis.text.x = ggplot2::element_text(vjust = -1,colour = mid_text),
