@@ -13,13 +13,13 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
 
   colPal <- match.arg(colPal)
 
-  options(ggplot2.continuous.colour="viridis")
+  options(ggplot2.continuous.colour = "viridis")
   options(ggplot2.continuous.fill = "viridis")
 
-  if (colPal == "pal2"){
+  if (colPal == "pal2") {
     options(ggplot2.discrete.colour = pal2 )
     options(ggplot2.discrete.fill = pal2 )
-  } else if (colPal == "pal3"){
+  } else if (colPal == "pal3") {
     options(ggplot2.discrete.colour = pal3 )
     options(ggplot2.discrete.fill = pal3 )
 
@@ -54,9 +54,28 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
               #plot.title = ggplot2::element_text(color = dark_text),
               plot.title.position = "plot",
               panel.spacing = grid::unit(1, "lines"),
-              axis.line = ggplot2::element_line(colour = mid_text, lineend = 'square',linewidth = LS(1.5)),
-              axis.ticks.length = ggplot2::unit(3, "pt"))
+              axis.line = ggplot2::element_line(colour = mid_text,
+                                                lineend = 'square',
+                                                linewidth = LS(1.5)),
+              axis.ticks.length = ggplot2::unit(3, "pt"),
+              axis.ticks = element_line(colour = mid_text, size = LS(1.5)))
   )
+
+  update_geom_defaults("boxplot",
+                       list(
+                         fill = "#ffffd9",
+                         linewidth = LS(1),
+                         colour = "#010B13"
+                       ))
+  update_geom_defaults("point",
+                       list(
+                         shape = 21,
+                         fill = "gray99",
+                         color = dark_text,
+                         size = 1.8,
+                         alpha = 1,
+                         stroke = 0.5
+                       ))
 
 message(paste("ggtext is used to call plot.title and plot.subtitle enabling simple Markdown and HTML",
       "rendering for ggplot2. See https://wilkelab.org/ggtext/"))
