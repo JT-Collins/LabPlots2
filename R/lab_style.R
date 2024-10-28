@@ -58,7 +58,7 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
                                                 lineend = 'square',
                                                 linewidth = LS(1.5)),
               axis.ticks.length = ggplot2::unit(3, "pt"),
-              axis.ticks = element_line(colour = mid_text, size = LS(1.5)))
+              axis.ticks = element_line(colour = mid_text, linewidth = LS(1.5)))
   )
 
   update_geom_defaults("boxplot",
