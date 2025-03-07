@@ -17,13 +17,13 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
 
 
 
-  options(ggplot2.continuous.colour="viridis")
+  options(ggplot2.continuous.colour = "viridis")
   options(ggplot2.continuous.fill = "viridis")
 
-  if (colPal == "pal2"){
+  if (colPal == "pal2") {
     options(ggplot2.discrete.colour = pal2 )
     options(ggplot2.discrete.fill = pal2 )
-  } else if (colPal == "pal3"){
+  } else if (colPal == "pal3") {
     options(ggplot2.discrete.colour = pal3 )
     options(ggplot2.discrete.fill = pal3 )
 
@@ -42,12 +42,12 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
       ticks = TRUE,
       base_size = 7,
       plot_margin = ggplot2::margin(2, 2, 2, 2),
-      plot_title_size = 9,
-      subtitle_size = 8,
+      plot_title_size = 8,
+      subtitle_size = 7,
       subtitle_margin = 2,
       axis_title_size = 7,
       strip_text_size = 7,
-      caption_size = 8 ,
+      caption_size = 7 ,
       caption_face = "plain",
       caption_margin = 3
     ) + theme(text = element_text(colour = black_text),
@@ -55,7 +55,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
                                                     margin = margin(b = 2.8),),
               plot.subtitle = ggtext::element_textbox_simple(lineheight = 1.1,
                                                              margin = margin(b = 2.6)),
-              plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	black_text, size=7),
+              plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	black_text, size = 7),
               plot.caption.position = "plot",
               plot.title.position = "plot",
               axis.title.x = element_text(margin = margin(t = 2, b = 2)),
@@ -76,7 +76,9 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               legend.box.background = element_blank(),
               legend.box.spacing    = unit(2, "pt")
 
-    ))
+    ) +  scale_x_continuous(breaks = scales::pretty_breaks()) +
+      scale_y_continuous(breaks = scales::pretty_breaks())
+  )
 
   update_geom_defaults("boxplot",
                        list(
