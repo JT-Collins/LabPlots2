@@ -79,6 +79,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               legend.box.background = element_blank(),
               legend.box.spacing    = unit(2, "pt")
 
+
     )
   )
 
