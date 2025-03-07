@@ -52,20 +52,23 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
       caption_margin = 3
     ) + theme(text = element_text(colour = black_text),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1,
-                                                    margin = margin(b = 2.8),),
+                                                    margin = margin(b = 2.4),),
               plot.subtitle = ggtext::element_textbox_simple(lineheight = 1.1,
-                                                             margin = margin(b = 2.6)),
-              plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	black_text, size = 7),
+                                                             margin = margin(b = 1.8)),
+              plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	black_text, size = 6),
               plot.caption.position = "plot",
               plot.title.position = "plot",
+              axis.line = element_line(lineend = 'square'),
+              axis.line.x = element_line(linewidth = LS(0.75), colour = black_text), # 0.75 pt size
+              axis.line.y = element_line(linewidth = LS(0.75), colour = black_text), # 0.75 pt size
               axis.title.x = element_text(margin = margin(t = 2, b = 2)),
               axis.title.x.top = element_text(margin = margin(b = 2)),
               axis.title.y = element_text(angle = 90, margin = margin(r = 2)),
-              axis.text.y = element_text(colour = black_text, margin = margin(r = 1)),
-              axis.text.x = element_text(colour = black_text, margin = margin(t = 1)),
+              axis.text.y = element_text(colour = black_text, margin = margin(r = 0.8), size = 6),
+              axis.text.x = element_text(colour = black_text, margin = margin(t = 0.8), size = 6),
               axis.text.x.top   = element_text(margin = margin(b = 1)),
               axis.text.y.right = element_text(margin = margin(l = 1)),
-              axis.ticks.length = unit(1, "pt"),
+              axis.ticks.length = unit(2, "pt"),
               #panel.grid.major = element_line(linetype='dashed',linewidth = 0.15, colour = mid_text),
               panel.grid.minor = element_blank(),
               panel.spacing = grid::unit(4, "pt"),
@@ -76,8 +79,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               legend.box.background = element_blank(),
               legend.box.spacing    = unit(2, "pt")
 
-    ) +  scale_x_continuous(breaks = scales::pretty_breaks()) +
-      scale_y_continuous(breaks = scales::pretty_breaks())
+    )
   )
 
   update_geom_defaults("boxplot",
