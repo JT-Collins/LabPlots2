@@ -74,6 +74,8 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               axis.text.y.right = element_text(margin = margin(l = 1)),
               axis.ticks.length = unit(2, "pt"),
               axis.ticks = element_line(size = LS(0.75)),
+
+
               #panel.grid.major = element_line(linetype='dashed',linewidth = 0.15, colour = mid_text),
               panel.grid.minor = element_blank(),
               panel.spacing = grid::unit(4, "pt"),
