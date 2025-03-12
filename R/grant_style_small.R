@@ -59,7 +59,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               plot.caption.position = "plot",
               plot.title.position = "plot",
               axis.line = element_line(lineend = 'square',
-                                       linewidth = LS(0.75),
+                                       linewidth = LS(1),
                                        colour = black_text),
               # axis.line.x = element_line(linewidth = LS(0.75),
               #                            colour = black_text), # 0.75 pt size
@@ -73,7 +73,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               axis.text.x.top   = element_text(margin = margin(b = 1)),
               axis.text.y.right = element_text(margin = margin(l = 1)),
               axis.ticks.length = unit(2, "pt"),
-              axis.ticks = element_line(size = LS(0.75)),
+              axis.ticks = element_line(size = LS(1)),
 
 
               #panel.grid.major = element_line(linetype='dashed',linewidth = 0.15, colour = mid_text),
