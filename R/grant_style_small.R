@@ -58,9 +58,13 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               plot.caption = ggtext::element_textbox_simple(lineheight = 1.1, colour = 	black_text, size = 6),
               plot.caption.position = "plot",
               plot.title.position = "plot",
-              axis.line = element_line(lineend = 'square'),
-              axis.line.x = element_line(linewidth = LS(0.75), colour = black_text), # 0.75 pt size
-              axis.line.y = element_line(linewidth = LS(0.75), colour = black_text), # 0.75 pt size
+              axis.line = element_line(lineend = 'square',
+                                       linewidth = LS(0.75),
+                                       colour = black_text),
+              # axis.line.x = element_line(linewidth = LS(0.75),
+              #                            colour = black_text), # 0.75 pt size
+              # axis.line.y = element_line(linewidth = LS(0.75),
+              #                            colour = black_text), # 0.75 pt size
               axis.title.x = element_text(margin = margin(t = 2, b = 2)),
               axis.title.x.top = element_text(margin = margin(b = 2)),
               axis.title.y = element_text(angle = 90, margin = margin(r = 2)),
@@ -69,6 +73,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
               axis.text.x.top   = element_text(margin = margin(b = 1)),
               axis.text.y.right = element_text(margin = margin(l = 1)),
               axis.ticks.length = unit(2, "pt"),
+              axis.ticks = element_line(size = LS(0.75)),
               #panel.grid.major = element_line(linetype='dashed',linewidth = 0.15, colour = mid_text),
               panel.grid.minor = element_blank(),
               panel.spacing = grid::unit(4, "pt"),
