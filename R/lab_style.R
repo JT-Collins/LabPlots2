@@ -46,8 +46,8 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
       strip_text_size = 14
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
-              axis.text.x = ggplot2::element_text(vjust = -1,colour = mid_text),
-              axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 1), colour = mid_text),
+              axis.text.y = element_text(colour = black_text, margin = margin(r = 0.8), size = 12),
+              axis.text.x = element_text(colour = black_text, margin = margin(t = 0.8), size = 12),
               axis.title.x = element_text(vjust = -0.75),
               plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1),
               plot.subtitle = ggtext::element_markdown(lineheight = 1.1),
