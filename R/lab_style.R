@@ -35,13 +35,14 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
   ggplot2::theme_set(
     hrbrthemes::theme_ipsum(
       grid = FALSE,
-      axis = FALSE,
+      axis = TRUE,
       ticks = TRUE,
-      base_size = 14,
+      axis_col = "black",
+      base_size = 12,
       plot_margin = ggplot2::margin(15, 10, 10, 15),
-      plot_title_size = 20,
-      subtitle_size = 18,
-      axis_title_size = 16,
+      plot_title_size = 16,
+      subtitle_size = 14,
+      axis_title_size = 14,
       strip_text_size = 14
 
     ) + theme(text = ggplot2::element_text(colour = mid_text),
@@ -58,7 +59,8 @@ lab_style <- function(colPal = c("uofl_col", "alt_col")) {
                                                 lineend = 'square',
                                                 linewidth = LS(1.5)),
               axis.ticks.length = ggplot2::unit(3, "pt"),
-              axis.ticks = element_line(colour = mid_text, linewidth = 1.5))
+              axis.ticks = element_line(size = LS(1.5)),
+              axis.minor.ticks.x.bottom = element_line(size = LS(1.5)),)
   )
 
   update_geom_defaults("boxplot",
