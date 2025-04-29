@@ -13,13 +13,13 @@ grant_style <- function(colPal = c("pal1","pal2", "pal3")) {
 
   colPal <- match.arg(colPal)
 
-  options(ggplot2.continuous.colour="viridis")
+  options(ggplot2.continuous.colour = "viridis")
   options(ggplot2.continuous.fill = "viridis")
 
-  if (colPal == "pal2"){
+  if (colPal == "pal2") {
     options(ggplot2.discrete.colour = pal2 )
     options(ggplot2.discrete.fill = pal2 )
-  } else if (colPal == "pal3"){
+  } else if (colPal == "pal3") {
     options(ggplot2.discrete.colour = pal3 )
     options(ggplot2.discrete.fill = pal3 )
 
@@ -47,7 +47,7 @@ grant_style <- function(colPal = c("pal1","pal2", "pal3")) {
       caption_face = "plain",
       caption_margin = 4
           ) + theme(text = element_text(colour = black_text),
-                    plot.title = ggtext::element_markdown(color = dark_text, lineheight = 1.1,
+                    plot.title = ggtext::element_textbox_simple(color = dark_text, lineheight = 1.1,
                                                           margin = margin(b = 4.8),),
                     plot.subtitle = ggtext::element_textbox_simple(lineheight = 1.1,
                                                              margin = margin(b = 3.6)),
