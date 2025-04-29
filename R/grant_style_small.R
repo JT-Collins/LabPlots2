@@ -49,6 +49,7 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
       strip_text_size = 7,
       caption_size = 7 ,
       caption_face = "plain",
+      plot_title_face = "plain",
       caption_margin = 3
     ) + theme(text = element_text(colour = black_text),
               plot.title = ggtext::element_textbox_simple(color = dark_text, lineheight = 0.9,
