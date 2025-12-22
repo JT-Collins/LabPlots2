@@ -1,12 +1,12 @@
 
 #' Save figures at gold-standard sizes while preserving line thickness
-#' @param filename Output file name (.pdf, .png, .tiff)
+#' @param filename Output filename (.pdf, .png, .tiff)
 #' @param plot A ggplot object; defaults to last plot
-#' @param size "half" (3.5 in width) or "full" (7 in width)
-#' @param height Height in inches; if NULL, uses sensible defaults
-#' @param dpi For raster formats (PNG/TIFF), default 300
+#' @param size "half" (3.5 in width) or "full" (7.0 in width)
+#' @param height Height in inches; default 2.5 (half) / 4.5 (full)
+#' @param dpi Raster resolution; default 300
 #' @param bg Background color; default "white"
-#' @param family Font family passed to vector devices (e.g., "Arial")
+#' @param family Font family for Cairo vector devices; default "Arial"
 #' @param useDingbats Logical for PDF/EPS embedding; default FALSE
 #' @export
 ggsave_gold <- function(
@@ -32,7 +32,6 @@ ggsave_gold <- function(
   is_raster <- ext %in% c("png", "tiff", "tif")
 
   if (is_vector) {
-    # Use Cairo to embed fonts reliably
     dev_fun <- switch(ext,
                       pdf = grDevices::cairo_pdf,
                       eps = grDevices::cairo_ps,
@@ -42,25 +41,27 @@ ggsave_gold <- function(
       stop("For .svg outputs, please install the 'svglite' package.")
     }
 
+    # Accept ... so ggsave can pass bg (and others) safely.
     ggplot2::ggsave(
       filename = filename,
       plot = plot,
-      device = function(file, width, height) dev_fun(file = file, width = width, height = height,
-                                                     family = family, onefile = TRUE, fallback_resolution = 300,
-                                                     useDingbats = useDingbats),
+      device = function(file, width, height, ...) {
+        dev_fun(file = file, width = width, height = height,
+                family = family, onefile = TRUE,
+                fallback_resolution = 300, useDingbats = useDingbats, ...)
+      },
       width  = width_in, height = height_in, units = "in",
       bg = bg, scale = 1
     )
 
   } else if (is_raster) {
-    # Raster: preserve white background; 300 dpi; Cairo type for anti-aliased lines
     dev_name <- if (ext %in% c("png")) "png" else "tiff"
     ggplot2::ggsave(
       filename = filename,
       plot = plot,
       device = dev_name,
       width = width_in, height = height_in, units = "in",
-      dpi = dpi, bg = bg, type = "cairo", # ensures consistent rendering
+      dpi = dpi, bg = bg, type = "cairo",
       compression = if (ext %in% c("tiff","tif")) "lzw" else "none",
       scale = 1
     )
