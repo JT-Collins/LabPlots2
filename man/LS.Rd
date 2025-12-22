@@ -7,12 +7,12 @@
 LS(x)
 }
 \arguments{
-\item{x}{numeric vector giving the lines sizes in points}
+\item{x}{numeric vector giving the line sizes in points}
 }
 \value{
-Returns a numeric vector of length \code{x} of ggplot line sizes
+numeric vector of ggplot line sizes
 }
 \description{
-Converts line sizes measured as points (as given by most programs such as Adobe Illustrator etc.) to ggplot font sizes
+Converts line sizes measured as points (as given by Adobe Illustrator etc.) to ggplot line sizes
 }
 \keyword{internal}

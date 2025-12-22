@@ -52,10 +52,13 @@ grant_style_small <- function(colPal = c("pal1","pal2", "pal3")) {
       plot_title_face = "plain",
       caption_margin = 3
     ) + theme(text = element_text(colour = black_text),
-              plot.title = ggtext::element_textbox_simple(color = dark_text, lineheight = 0.9,
-                                                    margin = margin(b = 2.4),),
-              plot.subtitle = ggtext::element_textbox_simple(lineheight = 0.9,
-                                                             margin = margin(b = 1.8)),
+              plot.title = ggtext::element_textbox_simple(
+                color = dark_text,
+                lineheight = 0.9,
+                margin = margin(b = 2.4),),
+              plot.subtitle = ggtext::element_textbox_simple(
+                lineheight = 0.9,
+                margin = margin(b = 1.8)),
               plot.caption = ggtext::element_textbox_simple(lineheight = 0.9,
                                                             colour = 	black_text, size = 6),
               plot.caption.position = "plot",
