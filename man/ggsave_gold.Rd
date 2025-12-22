@@ -2,7 +2,7 @@
 % Please edit documentation in R/ggsave_gold.R
 \name{ggsave_gold}
 \alias{ggsave_gold}
-\title{Save figures at gold-standard sizes while preserving line thickness}
+\title{Save figures at journal-standard sizes while preserving line thickness}
 \usage{
 ggsave_gold(
   filename,
@@ -11,27 +11,25 @@ ggsave_gold(
   height = NULL,
   dpi = 300,
   bg = "white",
-  family = "Arial",
-  useDingbats = FALSE
+  family = "Arial"
 )
 }
 \arguments{
-\item{filename}{Output file name (.pdf, .png, .tiff)}
+\item{filename}{Output filename (.pdf, .eps, .svg, .png, .tiff/.tif)}
 
 \item{plot}{A ggplot object; defaults to last plot}
 
-\item{size}{"half" (3.5 in width) or "full" (7 in width)}
+\item{size}{"half" (3.5 in width) or "full" (7.0 in width)}
 
-\item{height}{Height in inches; if NULL, uses sensible defaults}
+\item{height}{Height in inches; defaults 2.5 (half) / 4.5 (full)}
 
-\item{dpi}{For raster formats (PNG/TIFF), default 300}
+\item{dpi}{Raster resolution; default 300}
 
 \item{bg}{Background color; default "white"}
 
-\item{family}{Font family passed to vector devices (e.g., "Arial")}
-
-\item{useDingbats}{Logical for PDF/EPS embedding; default FALSE}
+\item{family}{Font family for Cairo vector devices; default "Arial"}
 }
 \description{
-Save figures at gold-standard sizes while preserving line thickness
+- Vector: PDF/EPS via Cairo (font embedding, crisp lines), SVG via svglite
+- Raster: PNG/TIFF at 300 dpi (default), Cairo rendering for antialiasing
 }
