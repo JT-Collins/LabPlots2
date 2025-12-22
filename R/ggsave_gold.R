@@ -1,4 +1,3 @@
-
 #' Save figures at journal-standard sizes while preserving line thickness
 #'
 #' - Vector: PDF/EPS via Cairo (font embedding, crisp lines), SVG via svglite
