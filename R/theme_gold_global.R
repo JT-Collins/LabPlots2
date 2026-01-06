@@ -3,7 +3,7 @@
 #' @export
 set_gold_theme_global <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("ArialNarrow", "Arial"),
+    base_family = c("Arial Narrow", "Arial"),
     guides = FALSE,
     check_font = TRUE
 ) {
