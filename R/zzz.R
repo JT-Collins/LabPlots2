@@ -13,7 +13,7 @@
   # Optional font check (if systemfonts is available)
   font_line <- NULL
   if (requireNamespace("systemfonts", quietly = TRUE)) {
-    fam <- "Arial Narrow"
+    fam <- "ArialNarrow"
     ok  <- !is.null(systemfonts::match_font(fam))
     font_line <- if (ok) {
       sprintf("   • Detected font: '%s' ✓ — theme text & geom labels will use it if requested.", fam)
@@ -31,7 +31,7 @@
   if (auto) {
     # Safely apply the global theme (no ggplot2 internals, guarded font)
     try({
-      set_gold_theme_global(colPal = "pal1", base_family = "Arial Narrow", guides = FALSE)
+      set_gold_theme_global(colPal = "pal1", base_family = "ArialNarrow", guides = FALSE)
     }, silent = TRUE)
     auto_line <- "   • Auto-theme: enabled (options('labplots2.auto_theme') / LABPLOTS2_AUTO_THEME)."
   } else {

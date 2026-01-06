@@ -3,7 +3,7 @@
 #' @export
 set_gold_theme_global <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("Arial Narrow", "Arial"),
+    base_family = c("ArialNarrow", "Arial"),
     guides = FALSE,
     check_font = TRUE
 ) {
@@ -22,7 +22,9 @@ set_gold_theme_global <- function(
   }
 
   # Apply the theme globally (no ggplot2 internals)
-  th <- theme_gold_standard(colPal = colPal, base_family = base_family, guides = guides)
+  th <- theme_gold_standard(colPal = colPal, base_family = base_family, guides = guides)   +
+    ggplot2::theme(axis.ticks.length = grid::unit(2, "mm"))  # <-- set tick length to 2 mm
+
   ggplot2::theme_set(th)
 
   # Geoms don't inherit theme(text=...); update their defaults explicitly
@@ -46,7 +48,7 @@ set_gold_theme_global <- function(
 
   # Gold-standard line/point defaults
   axis_line_mm <- 0.30  # ~0.85 pt
-  axis_tick_mm <- 0.2  # ~0.7 pt
+  axis_tick_mm <- 0.25  # ~0.7 pt
   ggplot2::update_geom_defaults("line",
                                 list(linewidth = axis_line_mm, colour = dark_text))
   ggplot2::update_geom_defaults("errorbar",
