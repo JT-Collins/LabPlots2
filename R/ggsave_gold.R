@@ -12,6 +12,8 @@
 #' @param family Font family for Cairo vector devices; default "Arial"
 #' @export
 
+
+
 ggsave_gold <- function(
     filename,
     plot = ggplot2::last_plot(),
@@ -23,11 +25,13 @@ ggsave_gold <- function(
 ) {
   size <- match.arg(size)
 
-  width_in <- if (size == "half") 3.5 else 7
+  # Dimensions
+  width_in  <- if (size == "half") 3.5 else 7
   height_in <- if (is.null(height)) {
     if (size == "half") 2.5 else 4.5
   } else height
 
+  # Determine extension & type
   ext <- tolower(tools::file_ext(filename))
   is_vector <- ext %in% c("pdf", "eps", "svg")
   is_raster <- ext %in% c("png", "tiff", "tif")
@@ -37,65 +41,78 @@ ggsave_gold <- function(
   }
 
   if (is_vector) {
+    # ---------------- Vector outputs ----------------
     if (ext == "svg") {
       if (!requireNamespace("svglite", quietly = TRUE)) {
         stop("SVG requested but package 'svglite' is not installed.")
       }
-      dev_fun <- function(file, width, height, bg, family) {
-        svglite::svglite(file = file, width = width, height = height, bg = bg)
-      }
-      ggplot2::ggsave(
+      args <- list(
         filename = filename,
-        plot = plot,
-        device = function(file, width, height, ...) {
+        plot     = plot,
+        device   = function(file, width, height, ...) {
           dots <- list(...)
-          dev_fun(file = file, width = width, height = height, bg = dots[["bg"]] %||% "white", family = family)
+          svglite::svglite(
+            file   = file,
+            width  = width,
+            height = height,
+            bg     = if (!is.null(dots$bg)) dots$bg else "white"
+          )
         },
-        width = width_in,
-        height = height_in,
-        units = "in",
-        bg = bg,
-        scale = 1
+        width    = width_in,
+        height   = height_in,
+        units    = "in",
+        bg       = bg,
+        scale    = 1
       )
+      do.call(ggplot2::ggsave, args)
+
     } else {
+      # PDF/EPS via Cairo to better respect system fonts
       dev_fun <- if (ext == "pdf") grDevices::cairo_pdf else grDevices::cairo_ps
-      ggplot2::ggsave(
+      args <- list(
         filename = filename,
-        plot = plot,
-        device = function(file, width, height, ...) {
-          dev_fun(file = file, width = width, height = height, onefile = TRUE, family = family)
+        plot     = plot,
+        device   = function(file, width, height, ...) {
+          dev_fun(
+            file    = file,
+            width   = width,
+            height  = height,
+            onefile = TRUE,
+            family  = family
+          )
         },
-        width = width_in,
-        height = height_in,
-        units = "in",
-        bg = bg,
-        scale = 1
+        width    = width_in,
+        height   = height_in,
+        units    = "in",
+        bg       = bg,
+        scale    = 1
       )
+      do.call(ggplot2::ggsave, args)
     }
+
   } else {
-    # Raster output: PNG or TIFF
-    dev_name <- if (ext == "png") "png" else "tiff"
+    # ---------------- Raster outputs (ragg) ----------------
+    # Use ragg devices directly; do NOT pass `type` or `compression`
+    dev_fun <- if (ext == "png") ragg::agg_png else ragg::agg_tiff
 
-    # Build extra args only for TIFF
-    extra_args <- list()
-    if (ext %in% c("tiff", "tif")) {
-      extra_args$compression <- "lzw"
-    }
-
-    ggplot2::ggsave(
+    args <- list(
       filename = filename,
-      plot = plot,
-      device = dev_name,
-      width = width_in,
-      height = height_in,
-      units = "in",
-      dpi = dpi,
-      bg = bg,
-      type = "cairo",  # Forces Cairo for consistent font rendering
-      scale = 1,
-      !!!extra_args  # Pass compression only if needed
+      plot     = plot,
+      device   = dev_fun,
+      width    = width_in,
+      height   = height_in,
+      units    = "in",
+      dpi      = dpi,
+      bg       = bg,
+      scale    = 1
     )
+
+    # Note: ragg devices accept 'res' instead of 'dpi' when called directly,
+    # but ggplot2::ggsave maps 'dpi' appropriately to raster devices.
+
+    do.call(ggplot2::ggsave, args)
   }
 
   invisible(filename)
 }
+
