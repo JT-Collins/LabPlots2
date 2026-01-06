@@ -3,7 +3,7 @@
 #' @export
 set_gold_theme_global <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("Arial Narrow", "Arial"),
+    base_family = c("ArialNarrow", "Arial"),
     guides = FALSE,
     check_font = TRUE
 ) {
@@ -46,7 +46,7 @@ set_gold_theme_global <- function(
 
   # Gold-standard line/point defaults
   axis_line_mm <- 0.30  # ~0.85 pt
-  axis_tick_mm <- 0.25  # ~0.7 pt
+  axis_tick_mm <- 0.2  # ~0.7 pt
   ggplot2::update_geom_defaults("line",
                                 list(linewidth = axis_line_mm, colour = dark_text))
   ggplot2::update_geom_defaults("errorbar",
