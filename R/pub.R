@@ -40,8 +40,8 @@ theme_gold_standard <- function(
   # Line widths (mm) and spacing
   axis_line_mm       <- 0.30
   axis_tick_mm       <- 0.25
-  tick_len_mm        <- 2
-  panel_spacing_mm   <- 3
+  tick_len_mm        <- 1.5
+  panel_spacing_mm   <- 2
   guide_col          <- "#D9D9D9"
   guide_lw           <- 0.20
 
@@ -51,21 +51,21 @@ theme_gold_standard <- function(
 
     # Titles & caption
     plot.title    = ggplot2::element_text(color = dark_text, size = title_pt, face = "plain",
-                                          margin = ggplot2::margin(b = 6)),
+                                          margin = ggplot2::margin(b = 4)),
     plot.subtitle = ggplot2::element_text(color = dark_text, size = subtitle_pt,
                                           margin = ggplot2::margin(b = 4)),
     plot.caption  = ggplot2::element_text(color = black_text, size = caption_pt,
-                                          margin = ggplot2::margin(t = 6)),
+                                          margin = ggplot2::margin(t = 4)),
 
     # Axes
     axis.title.x = ggplot2::element_text(size = axis_title_pt,
-                                         margin = ggplot2::margin(t = 6, b = 6)),
+                                         margin = ggplot2::margin(t = 4, b = 4)),
     axis.title.y = ggplot2::element_text(size = axis_title_pt, angle = 90,
-                                         margin = ggplot2::margin(r = 6)),
+                                         margin = ggplot2::margin(r = 4)),
     axis.text.x  = ggplot2::element_text(color = black_text, size = tick_pt,
-                                         margin = ggplot2::margin(t = 3)),
+                                         margin = ggplot2::margin(t = 2)),
     axis.text.y  = ggplot2::element_text(color = black_text, size = tick_pt,
-                                         margin = ggplot2::margin(r = 3)),
+                                         margin = ggplot2::margin(r = 2)),
     axis.ticks.length = grid::unit(tick_len_mm, "mm"),
     axis.ticks        = ggplot2::element_line(linewidth = axis_tick_mm, colour = black_text),
     axis.line         = ggplot2::element_line(lineend = "square",
