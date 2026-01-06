@@ -22,9 +22,7 @@ set_gold_theme_global <- function(
   }
 
   # Apply the theme globally (no ggplot2 internals)
-  th <- theme_gold_standard(colPal = colPal, base_family = base_family, guides = guides)   +
-    ggplot2::theme(axis.ticks.length = grid::unit(2, "mm"))  # <-- set tick length to 2 mm
-
+  th <- theme_gold_standard(colPal = colPal, base_family = base_family, guides = guides)
   ggplot2::theme_set(th)
 
   # Geoms don't inherit theme(text=...); update their defaults explicitly

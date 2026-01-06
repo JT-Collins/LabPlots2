@@ -5,13 +5,13 @@
 #' and device-independent line widths. No global side effects.
 #'
 #' @param colPal One of "pal1", "pal2", "pal3" (must exist in calling env).
-#' @param base_family One of "Arial", "Arial Narrow".
+#' @param base_family One of "Arial", "ArialNarrow".
 #' @param guides Logical; if TRUE, adds subtle light-gray grid lines.
 #' @return A ggplot2 theme object.
 #' @export
 theme_gold_standard <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("Arial", "Arial Narrow"),
+    base_family = c("ArialNarrow", "Arial"),
     guides = FALSE
 ) {
   # --- Dependencies (runtime) ---
@@ -40,7 +40,7 @@ theme_gold_standard <- function(
   # Line widths (mm) and spacing
   axis_line_mm       <- 0.30
   axis_tick_mm       <- 0.25
-  tick_len_mm        <- 2.5
+  tick_len_mm        <- 2
   panel_spacing_mm   <- 3
   guide_col          <- "#D9D9D9"
   guide_lw           <- 0.20
@@ -95,12 +95,12 @@ theme_gold_standard <- function(
 #' Convenience: set theme globally and update geom defaults (opt-in)
 #'
 #' @param colPal One of "pal1","pal2","pal3".
-#' @param base_family "Arial" or "Arial Narrow".
+#' @param base_family "ArialNarrow" or "Arial".
 #' @param guides Logical; TRUE adds subtle gridlines.
 #' @export
 use_gold_theme <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("Arial", "Arial Narrow"),
+    base_family = c("ArialNarrow","Arial"),
     guides = FALSE
 ) {
   th <- theme_gold_standard(colPal = colPal, base_family = base_family, guides = guides)
@@ -144,7 +144,7 @@ scale_fill_pal <- function(choice = c("pal1", "pal2", "pal3")) {
 #' @export
 grant_style_small <- function(
     colPal = c("pal1","pal2","pal3"),
-    base_family = c("Arial", "Arial Narrow"),
+    base_family = c("ArialNarrow", "Arial"),
     guides = FALSE
 ) {
   use_gold_theme(colPal = colPal, base_family = base_family, guides = guides)
