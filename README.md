@@ -1,7 +1,7 @@
 # LabPlots2
 reworking of LabPlots
 
-The goal of `LabPlots2` is to standardize the look of ggplot2 plots made in the lab. It makes use of `hrbrthemes` with some tweaks and a custom colour palate. A number of helper functions are also included.
+The goal of `LabPlots2` is to standardize the look of ggplot2 plots made in the lab. Sizes based on figures for a "paper", "Grant, and "Presentation" are included. A number of helper functions are also included.
 
 Also includes a function for setting up a project file structure and for basic reading of Cerillo plate reader data.
 
@@ -19,11 +19,11 @@ library('LabPlots2')
 
 `create_project()` Takes two inputs - the name of the new project and the location the project should be located e.g. `create_project("MyProject", ~/Box/Projects)`. If a second variable is not provided then the location will default to the current working directory. Run this function where you want to the project to exist and it will generate a folder structure for you and generate a new RStudio project. 
 
-`lab_style()` Sets the standard LabPlot style and should be called once.  
+`set_lab_theme(plot_type = "paper")` Sets the standard LabPlot style and should be called once.  
 
-`grant_style()` Makes a few adjustments to make plots more suitable for grants/papers.
+`set_lab_theme(plot_type = "grant")` Makes a few adjustments to make plots more suitable for grants.
 
-`poster_style()` Increases font sizes to make plots more suitable for poster presentations.
+`set_lab_theme(plot_type = "presentation")` Increases font sizes to make plots more suitable for presentations.
 
 `add_pvalue()` is ported from `ggprism` See [here](https://csdaw.github.io/ggprism/articles/pvalues.html) and is itself refactored from  `stat_pvalue_manual` from [kassambara/ggpubr](https://github.com/kassambara/ggpubr), altered to have less dependencies, and more flexibility with input format and aesthetics. Examples using `stat_pvalue_manual` found on [Datanovia](https://www.datanovia.com/en/?s=p-value&search-type=default) will also work with `add_pvalue`.  
 

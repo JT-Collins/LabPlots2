@@ -4,10 +4,10 @@
 .onAttach <- function(libname, pkgname) {
   # Compose a concise, helpful startup message
   msg_lines <- c(
-    sprintf("✔ %s loaded: gold-standard plotting utilities", pkgname),
-    "   • Use set_gold_theme_global() to apply the journal-ready theme across your session.",
-    "   • Save figures with ggsave_gold(..., size = 'half'|'full') for columns, Cairo PDF/EPS, and 300-dpi raster.",
-    "   • Palettes available: pal1, pal2, pal3 (see ?scale_color_pal / ?scale_fill_pal)."
+    sprintf("✔ %s loaded: plotting utilities", pkgname),
+    "   • Use set_lab_theme() to apply the journal-ready theme across your session.",
+    "   • Options include plot_type = c('grant', 'paper', 'presentation')",
+    "   • Font can be changes from Arial with base_family = 'FontName'."
   )
 
   # Optional font check (if systemfonts is available)

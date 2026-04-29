@@ -6,14 +6,14 @@
 \usage{
 theme_gold_standard(
   colPal = c("pal1", "pal2", "pal3"),
-  base_family = c("Arial", "Arial Narrow"),
+  base_family = c("ArialNarrow", "Arial"),
   guides = FALSE
 )
 }
 \arguments{
 \item{colPal}{One of "pal1", "pal2", "pal3" (must exist in calling env).}
 
-\item{base_family}{One of "Arial", "Arial Narrow".}
+\item{base_family}{One of "Arial", "ArialNarrow".}
 
 \item{guides}{Logical; if TRUE, adds subtle light-gray grid lines.}
 }

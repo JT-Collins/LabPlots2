@@ -3,6 +3,12 @@
 #' @param plot_type Character. One of "paper", "grant", or "presentation".
 #' @param base_family Character. Font family to use (default: Arial).
 #'
+#'
+#' @examples
+#' set_gold_theme_global()
+#' set_gold_theme_global(plot_type = "grant", base_family = "Segoe UI")
+#' set_gold_theme_global(plot_type = "presentation")
+#'
 #' @export
 set_lab_theme <- function(
     plot_type = c("paper", "grant", "presentation"),

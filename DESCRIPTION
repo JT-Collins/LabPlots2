@@ -1,7 +1,7 @@
 Package: LabPlots2
 Type: Package
 Title: Uniform lab ggplots
-Version: 0.1.0
+Version: 0.2.0
 Author: J. Collins
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Uniform plotting and helper functions used in the lab
@@ -15,7 +15,8 @@ Imports:
     hrbrthemes,
     janitor,
     readxl,
-    ggprism
+    ggprism,
+	grid
 RoxygenNote: 7.3.3
 Suggests: 
     testthat (>= 3.0.0)

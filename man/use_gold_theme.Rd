@@ -6,14 +6,14 @@
 \usage{
 use_gold_theme(
   colPal = c("pal1", "pal2", "pal3"),
-  base_family = c("Arial", "Arial Narrow"),
+  base_family = c("ArialNarrow", "Arial"),
   guides = FALSE
 )
 }
 \arguments{
 \item{colPal}{One of "pal1","pal2","pal3".}
 
-\item{base_family}{"Arial" or "Arial Narrow".}
+\item{base_family}{"ArialNarrow" or "Arial".}
 
 \item{guides}{Logical; TRUE adds subtle gridlines.}
 }

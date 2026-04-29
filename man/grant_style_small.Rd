@@ -7,7 +7,7 @@
 \usage{
 grant_style_small(
   colPal = c("pal1", "pal2", "pal3"),
-  base_family = c("Arial", "Arial Narrow"),
+  base_family = c("ArialNarrow", "Arial"),
   guides = FALSE
 )
 }
