@@ -99,16 +99,6 @@ set_lab_theme <- function(
       # Spacing
       plot.margin = size_map$margin,
 
-      legend.spacing.y = grid::unit(
-        size_map$legend_spacing_y,
-        "mm"
-      ),
-      legend.key.height = grid::unit(
-        size_map$legend_key_height,
-        "mm"
-      ),
-
-
       # Legend
       legend.key = ggplot2::element_blank(),
       legend.text = ggplot2::element_text(size = size_map$legend_text),
