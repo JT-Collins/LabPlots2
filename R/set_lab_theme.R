@@ -52,6 +52,8 @@ set_lab_theme <- function(
       axis_title = 13,
       axis_text = 12,
       legend_text = 12,
+      legend_spacing_y = 3,
+      legend_key_height = 5,
       axis_line = 0.6,
       tick_length_mm = 2,
       margin = margin(10, 12, 10, 10, "pt")
