@@ -39,15 +39,15 @@ set_lab_theme <- function(
       axis_text = 6.5,
       legend_text = 6.5,
       axis_line = 0.30,
-      tick_length_mm = 0.8,
+      tick_length_mm = 0.6,
       margin = margin(4, 5, 4, 4, "pt")
     ),
     presentation = list(
-      base = 12,
-      title = 14,
-      axis_title = 12,
-      axis_text = 11,
-      legend_text = 11,
+      base = 13,
+      title = 15,
+      axis_title = 13,
+      axis_text = 12,
+      legend_text = 12,
       axis_line = 0.6,
       tick_length_mm = 2,
       margin = margin(10, 12, 10, 10, "pt")
@@ -66,8 +66,7 @@ set_lab_theme <- function(
       # Text
       plot.title = ggplot2::element_text(
         size = size_map$title,
-        face = "plain",
-        hjust = 0.5
+        face = "plain"
       ),
       axis.title = ggplot2::element_text(size = size_map$axis_title),
       axis.text  = ggplot2::element_text(
@@ -126,7 +125,7 @@ set_lab_theme <- function(
       fill = "white",
       colour = "gray20",
       size = if (plot_type == "presentation") 3 else 1.6,
-      stroke = size_map$axis_line
+      stroke = (size_map$axis_line)*0.8
     )
   )
 
