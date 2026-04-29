@@ -28,6 +28,8 @@ set_lab_theme <- function(
       axis_title = 8,
       axis_text = 7.5,
       legend_text = 7,
+      legend_spacing_y = 1.5,
+      legend_key_height = 3.5,
       axis_line = 0.35,
       tick_length_mm = 1,
       margin = margin(5, 6, 5, 5, "pt")
@@ -38,6 +40,8 @@ set_lab_theme <- function(
       axis_title = 7,
       axis_text = 6.5,
       legend_text = 6.5,
+      legend_spacing_y = 1,
+      legend_key_height = 3,
       axis_line = 0.30,
       tick_length_mm = 0.6,
       margin = margin(4, 5, 4, 4, "pt")
@@ -90,16 +94,28 @@ set_lab_theme <- function(
 
       # Panels
       panel.border = ggplot2::element_blank(),
-      panel.grid.major = ggplot2::element_blank(),
-      panel.grid.minor = ggplot2::element_blank(),
+      panel.grid = ggplot2::element_blank(),
 
       # Spacing
       plot.margin = size_map$margin,
 
+      legend.spacing.y = grid::unit(
+        size_map$legend_spacing_y,
+        "mm"
+      ),
+      legend.key.height = grid::unit(
+        size_map$legend_key_height,
+        "mm"
+      ),
+
+
       # Legend
       legend.key = ggplot2::element_blank(),
       legend.text = ggplot2::element_text(size = size_map$legend_text),
-      legend.title = ggplot2::element_blank()
+      legend.title = ggplot2::element_blank(),
+      legend.spacing.y = grid::unit(size_map$legend_spacing_y, "mm"),
+      legend.key.height = grid::unit(size_map$legend_key_height, "mm")
+
     )
 
   ## -----------------------------------------------------------
