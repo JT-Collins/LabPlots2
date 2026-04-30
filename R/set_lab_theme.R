@@ -98,6 +98,13 @@ set_lab_theme <- function(
       panel.border = ggplot2::element_blank(),
       panel.grid = ggplot2::element_blank(),
 
+            # Facet strips
+      strip.background = ggplot2::element_blank(),
+      strip.text = ggplot2::element_text(
+        size = size_map$axis_title,
+        colour = "gray20"
+      ),
+
       # Spacing
       plot.margin = size_map$margin,
 
