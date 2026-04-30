@@ -5,14 +5,15 @@
 #'
 #'
 #' @examples
-#' set_gold_theme_global()
-#' set_gold_theme_global(plot_type = "grant", base_family = "Segoe UI")
-#' set_gold_theme_global(plot_type = "presentation")
+#' set_lab_theme()
+#' set_lab_theme(plot_type = "grant", base_family = "Segoe UI")
+#' set_lab_theme(plot_type = "presentation")
 #'
 #' @export
 set_lab_theme <- function(
     plot_type = c("paper", "grant", "presentation"),
-    base_family = "Arial"
+    base_family = "Arial",
+    local = FALSE
 ) {
 
   plot_type <- match.arg(plot_type)
@@ -31,8 +32,8 @@ set_lab_theme <- function(
       legend_spacing_y = 1.5,
       legend_key_height = 3.5,
       axis_line = 0.35,
-      tick_length_mm = 1,
-      margin = margin(5, 6, 5, 5, "pt")
+      tick_length_mm = 0.8,
+      margin = ggplot2::margin(5, 6, 5, 5, "pt")
     ),
     grant = list(
       base = 7,
@@ -43,8 +44,8 @@ set_lab_theme <- function(
       legend_spacing_y = 1,
       legend_key_height = 3,
       axis_line = 0.30,
-      tick_length_mm = 0.6,
-      margin = margin(4, 5, 4, 4, "pt")
+      tick_length_mm = 0.5,
+      margin = ggplot2::margin(4, 5, 4, 4, "pt")
     ),
     presentation = list(
       base = 13,
@@ -56,7 +57,7 @@ set_lab_theme <- function(
       legend_key_height = 5,
       axis_line = 0.6,
       tick_length_mm = 2,
-      margin = margin(10, 12, 10, 10, "pt")
+      margin = ggplot2::margin(10, 12, 10, 10, "pt")
     )
   )
 
@@ -98,7 +99,7 @@ set_lab_theme <- function(
       panel.border = ggplot2::element_blank(),
       panel.grid = ggplot2::element_blank(),
 
-            # Facet strips
+      # Facet strips
       strip.background = ggplot2::element_blank(),
       strip.text = ggplot2::element_text(
         size = size_map$axis_title,
@@ -107,6 +108,13 @@ set_lab_theme <- function(
 
       # Spacing
       plot.margin = size_map$margin,
+      axis.title.x = ggplot2::element_text(
+        margin = ggplot2::margin(t = 4, unit = "pt")
+      ),
+      axis.title.y = ggplot2::element_text(
+        margin = ggplot2::margin(r = 4, unit = "pt")
+      ),
+
 
       # Legend
       legend.key = ggplot2::element_blank(),
@@ -118,6 +126,14 @@ set_lab_theme <- function(
     )
 
   ## -----------------------------------------------------------
+  ## EARLY EXIT for local use
+  ## -----------------------------------------------------------
+  if (local) {
+    return(th)
+  }
+
+
+  ## -----------------------------------------------------------
   ## Apply globally
   ## -----------------------------------------------------------
   ggplot2::theme_set(th)
@@ -127,7 +143,7 @@ set_lab_theme <- function(
   ## -----------------------------------------------------------
   ggplot2::update_geom_defaults(
     "line",
-    list(linewidth = size_map$axis_line, colour = "gray20")
+    list(linewidth = size_map$axis_line, colour = "gray20", lineend = 'square')
   )
   ggplot2::update_geom_defaults(
     "errorbar",
