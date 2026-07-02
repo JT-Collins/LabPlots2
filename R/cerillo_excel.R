@@ -34,8 +34,35 @@ cerillo_excel <- function(filename = paste0(Sys.Date(), ".xlsx")) {
   writeData(wb, "map", x = c("Well", well_coordinates$well), startCol = 1, startRow = 1)
   writeData(wb, "map", x = "Biol_rep", startCol = 2, startRow = 1, colNames = FALSE)
 
+  writeData(
+    wb, "map",
+    "INSTRUCTIONS: Add as many extra columns as needed (e.g., Sugar, Strain, Replicate, etc.).",
+    startRow = 1, startCol = 3
+  )
+
+
   # Add the "dat" sheet
   addWorksheet(wb, "dat")
+
+  writeData(
+    wb, "dat",
+    "INSTRUCTIONS: Paste only the processed data and well headers (e.g., A1-H12).",
+    startRow = 1,
+    startCol = 1
+  )
+
+
+  # Add the "raw" sheet
+  addWorksheet(wb, "raw")
+
+
+  writeData(
+    wb, "raw",
+    "INSTRUCTIONS: Paste the raw plate reader export exactly as provided.",
+    startRow = 1,
+    startCol = 1
+  )
+
 
   # Save the workbook to a file
   tryCatch(
