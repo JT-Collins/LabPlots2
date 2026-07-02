@@ -36,7 +36,7 @@ cerillo_excel <- function(filename = paste0(Sys.Date(), ".xlsx")) {
 
   writeData(
     wb, "map",
-    "INSTRUCTIONS: Add as many extra columns as needed (e.g., Sugar, Strain, Replicate, etc.).",
+    "INSTRUCTIONS: Add as many extra columns as needed (e.g., Sugar, Strain, Replicate, etc.). You must keep 'Well' & 'Biol_rep'",
     startRow = 1, startCol = 3
   )
 
@@ -46,7 +46,7 @@ cerillo_excel <- function(filename = paste0(Sys.Date(), ".xlsx")) {
 
   writeData(
     wb, "dat",
-    "INSTRUCTIONS: Paste only the processed data and well headers (e.g., A1-H12).",
+    "INSTRUCTIONS: Paste only the raw OD data and well headers (e.g., A1-H12).",
     startRow = 1,
     startCol = 1
   )
