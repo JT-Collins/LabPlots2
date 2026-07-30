@@ -29,6 +29,7 @@ set_lab_theme <- function(
       axis_title = 8,
       axis_text = 7.5,
       legend_text = 7,
+      panel_tag = 12,
       legend_spacing_y = 1.5,
       legend_key_height = 3.5,
       axis_line = 0.35,
@@ -41,6 +42,7 @@ set_lab_theme <- function(
       axis_title = 7,
       axis_text = 6.5,
       legend_text = 6.5,
+      panel_tag = 10,
       legend_spacing_y = 1,
       legend_key_height = 3,
       axis_line = 0.30,
@@ -53,6 +55,7 @@ set_lab_theme <- function(
       axis_title = 13,
       axis_text = 12,
       legend_text = 12,
+      panel_tag = 17,
       legend_spacing_y = 3,
       legend_key_height = 5,
       axis_line = 0.6,
@@ -105,6 +108,16 @@ set_lab_theme <- function(
         size = size_map$axis_title,
         colour = "gray20"
       ),
+
+      # tags
+      plot.tag = ggplot2::element_text(
+        family = base_family,
+        size = size_map$panel_tag,
+        face = "bold",
+        colour = "black"
+      ),
+      plot.tag.position = c(0, 1),
+
 
       # Spacing
       plot.margin = size_map$margin,
