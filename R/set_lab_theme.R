@@ -55,27 +55,27 @@ set_lab_theme <- function(
       legend_dir = "horizontal"
     ),
     presentation = list(
-      base = 16,
-      title = 20,
-      axis_title = 16,
-      axis_text = 14,
-      legend_text = 14,
-      panel_tag = 22,
+      base = 15,
+      title = 18,
+      axis_title = 15,
+      axis_text = 13,
+      legend_text = 13,
+      panel_tag = 18,
       legend_spacing_y = 4,
       legend_key_height = 8,
-      axis_line = 0.8,
-      tick_length_mm = 2.5,
-      margin = ggplot2::margin(12, 14, 12, 12, "pt"),
-      title_margin = ggplot2::margin(b = 6, unit = "pt"),
-      axis_title_x_margin = ggplot2::margin(t = 6, unit = "pt"),
-      axis_title_y_margin = ggplot2::margin(r = 6, unit = "pt"),
+      axis_line = 0.7,
+      tick_length_mm = 2,
+      margin = ggplot2::margin(10, 12, 10, 10, "pt"),
+      title_margin = ggplot2::margin(b = 5, unit = "pt"),
+      axis_title_x_margin = ggplot2::margin(t = 5, unit = "pt"),
+      axis_title_y_margin = ggplot2::margin(r = 5, unit = "pt"),
       legend_pos = "right",
       legend_dir = "vertical"
     )
   )
 
-  text_color <- if (plot_type == "presentation") "black" else "gray20"
-  line_color <- if (plot_type == "presentation") "grey10" else "gray30"
+  text_color <- if (plot_type == "presentation") "grey15" else "gray20"
+  line_color <- if (plot_type == "presentation") "grey25" else "gray30"
 
   ## -----------------------------------------------------------
   ## Build theme
@@ -89,7 +89,7 @@ set_lab_theme <- function(
       # Text
       plot.title = ggplot2::element_text(
         size = size_map$title,
-        face = if (plot_type == "presentation") "bold" else "plain",
+        face =  "plain",
         colour = text_color,
         margin = size_map$title_margin
       ),
@@ -130,7 +130,7 @@ set_lab_theme <- function(
       strip.background = ggplot2::element_blank(),
       strip.text = ggplot2::element_text(
         size = size_map$axis_title,
-        face = "bold",
+        face = "plain",
         colour = text_color
       ),
 
@@ -186,7 +186,7 @@ set_lab_theme <- function(
   ## -----------------------------------------------------------
   ## Minimal, safe geom defaults
   ## -----------------------------------------------------------
-  geom_line_color <- if (plot_type == "presentation") "black" else "gray20"
+  geom_line_color <- if (plot_type == "presentation") "grey10" else "gray20"
 
   ggplot2::update_geom_defaults(
     "line",
