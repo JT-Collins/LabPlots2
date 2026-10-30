@@ -56,7 +56,7 @@ set_lab_theme <- function(
     ),
     presentation = list(
       base = 15,
-      title = 18,
+      title = 20,
       axis_title = 15,
       axis_text = 13,
       legend_text = 13,
@@ -66,7 +66,7 @@ set_lab_theme <- function(
       axis_line = 0.7,
       tick_length_mm = 2,
       margin = ggplot2::margin(10, 12, 10, 10, "pt"),
-      title_margin = ggplot2::margin(b = 5, unit = "pt"),
+      title_margin = ggplot2::margin(b = 6, unit = "pt"),
       axis_title_x_margin = ggplot2::margin(t = 5, unit = "pt"),
       axis_title_y_margin = ggplot2::margin(r = 5, unit = "pt"),
       legend_pos = "right",
