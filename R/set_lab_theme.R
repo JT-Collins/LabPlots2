@@ -125,6 +125,11 @@ set_lab_theme <- function(
       } else {
         ggplot2::element_blank()
       },
+      panel.grid.minor.y = if (plot_type == "presentation") {
+        ggplot2::element_line(colour = "gray92", linewidth = 0.3)
+      } else {
+        ggplot2::element_blank()
+      },
 
       # Facet strips
       strip.background = ggplot2::element_blank(),
