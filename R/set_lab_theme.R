@@ -105,7 +105,8 @@ set_lab_theme <- function(
       # Axes
       axis.line  = ggplot2::element_line(
         colour = line_color,
-        linewidth = size_map$axis_line
+        linewidth = size_map$axis_line,
+        lineend = 'square'
       ),
       axis.ticks = ggplot2::element_line(
         colour = line_color,
