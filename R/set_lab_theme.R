@@ -117,9 +117,9 @@ set_lab_theme <- function(
         "mm"
       ),
       axis.title.y = if (plot_type =="presentation") { # rotate y axis title for easier reading
-        ggtext::element_markdown(angle = 0, vjust = 0.5)
+        ggtext::element_markdown(angle = 0, vjust = 0.5, margin = size_map$axis_title_y_margin)
       } else {
-        ggplot2::element_text(angle = 90, vjust = 1)
+        ggplot2::element_text(margin = size_map$axis_title_y_margin)
 
       },
 
@@ -129,7 +129,7 @@ set_lab_theme <- function(
       panel.grid.major.x = ggplot2::element_blank(),
       panel.grid.major.y = if (plot_type == "presentation") {
         ggplot2::element_line(colour = "gray92", linewidth = 0.4)
-      } else {
+      } else { 
         ggplot2::element_blank()
       },
       panel.grid.minor.y = if (plot_type == "presentation") {
@@ -159,9 +159,6 @@ set_lab_theme <- function(
       plot.margin = size_map$margin,
       axis.title.x = ggplot2::element_text(
         margin = size_map$axis_title_x_margin
-      ),
-      axis.title.y = ggplot2::element_text(
-        margin = size_map$axis_title_y_margin
       ),
 
       # Legend
