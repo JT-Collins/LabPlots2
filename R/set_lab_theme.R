@@ -116,6 +116,12 @@ set_lab_theme <- function(
         size_map$tick_length_mm,
         "mm"
       ),
+      axis.title.y = if (plot_type =="presentation") { # rotate y axis title for easier reading
+        ggtext::element_markdown(angle = 0, vjust = 0.5)
+      } else {
+        ggplot2::element_text(angle = 90, vjust = 1)
+
+      },
 
       # Panels & Grids
       panel.border = ggplot2::element_blank(),
